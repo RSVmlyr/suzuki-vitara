@@ -1,0 +1,39 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+import Home from './pages/Home/Home.jsx'
+import Terms  from './pages/Terms/Terms.jsx'
+import PageNotFound from './pages/404/404.jsx'
+
+import './App.scss'
+import './normalize.css'
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "*",
+    element: <PageNotFound/>,
+  },
+  {
+    path: "/404",
+    element: <PageNotFound />,
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/condiciones",
+    element: <Terms />,
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
