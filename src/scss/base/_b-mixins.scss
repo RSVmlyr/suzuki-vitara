@@ -76,3 +76,20 @@ $browser-context: 16; // Default
   display: $display;
   position: $pos;
 }
+
+@mixin title() {
+  color: $white;
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  @include mq (md) {
+    font-size: 5.6rem;
+  }
+}
+
+@mixin description() {
+  color: $white;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+}

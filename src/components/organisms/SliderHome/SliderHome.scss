@@ -1,0 +1,11 @@
+@import '../../../App.scss';
+
+.slider--home {
+  &__img,
+  &__img--mobile {
+    display: block;
+    margin: auto;
+    width: 90%;
+    @include maxArea;
+  }
+}

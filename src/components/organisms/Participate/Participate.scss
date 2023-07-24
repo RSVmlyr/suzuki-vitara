@@ -1,0 +1,19 @@
+@import '../../../App.scss';
+
+.participate {
+  margin: 5rem auto;
+  max-width: 90%;
+  @include mq (md) {
+    max-width: 92%;
+  }
+  @include maxArea();
+  &--top {
+    .title {
+      @include title();
+      padding: 0 0 2rem;
+    }
+    .description {
+      @include description()
+    }
+  }
+}

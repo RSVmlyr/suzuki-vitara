@@ -1,3 +1,9 @@
 body {
+  background: rgba(54, 26, 68, 1);
   font-family: $roboto;
+  min-height: 100vh;
+}
+
+html {
+  font-size: 10px;
 }
