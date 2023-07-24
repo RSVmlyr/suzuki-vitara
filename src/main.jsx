@@ -9,9 +9,11 @@ import './App.scss'
 import './normalize.css'
 
 import {
+  BrowserRouter,
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { App } from './App.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+    {/* <RouterProvider router={router} /> */}
   </React.StrictMode>,
 )
