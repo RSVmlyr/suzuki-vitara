@@ -1,7 +1,45 @@
 @import '../../App.scss';
 
 .page-notfound {
+  padding: 0 20px;
+
+  .img-404 {
+    display: block;
+    height: auto;
+    margin: 50px auto;
+    width: 100%;
+
+    @include mq (md) {
+      width: 700px;
+      margin: 40px auto 0;
+    }
+  }
+
   .title {
-    display: none;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+
+    @include mq (md) {
+      color: #ffffff;
+      font-size: 32px;
+      text-align: center;
+    }
+  }
+
+  .description {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+
+    @include mq (md) {
+      margin: 0 auto;
+      width: 620px;
+    }
+  }
+
+  .btn__trans {
+    display: block;
+    margin: 30px auto 60px;
   }
 }
