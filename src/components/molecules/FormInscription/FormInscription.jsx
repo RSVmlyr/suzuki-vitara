@@ -16,6 +16,7 @@ const FormInscription = () => {
           type="text"
           id="nombreCompleto"
           name="nombreCompleto"
+          placeholder="Nombre Completo"
           required
         />
       </div>
@@ -28,6 +29,7 @@ const FormInscription = () => {
           type="text"
           id="cedula"
           name="cedula"
+          placeholder="123456789"
           required
         />
       </div>
@@ -40,6 +42,7 @@ const FormInscription = () => {
           type="tel"
           id="celular"
           name="celular"
+          placeholder='000 000 0000'
           required
         />
       </div>
@@ -52,6 +55,7 @@ const FormInscription = () => {
           type="email"
           id="correoElectronico"
           name="correoElectronico"
+          placeholder='ejemplo@dominio.com'
           required
         />
       </div>
@@ -80,6 +84,7 @@ const FormInscription = () => {
           type="text"
           id="direccionDomicilio"
           name="direccionDomicilio"
+          placeholder='...'
           required
         />
       </div>
@@ -92,6 +97,7 @@ const FormInscription = () => {
           type="text"
           id="placaVehiculo"
           name="placaVehiculo"
+          placeholder='XXX 000'
           required
         />
       </div>
@@ -104,6 +110,7 @@ const FormInscription = () => {
           type="text"
           id="codigoVIN"
           name="codigoVIN"
+          placeholder='00X00X00XX 00'
           required
         />
       </div>

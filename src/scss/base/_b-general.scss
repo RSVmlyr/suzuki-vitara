@@ -20,6 +20,9 @@ input {
   font-size: 1.6rem;
   line-height: 1.2;
   padding: 1rem;
+  &::placeholder {
+    opacity: .4;
+  }
 }
 
 select {

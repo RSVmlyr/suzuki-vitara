@@ -19,16 +19,16 @@ const UploadImage = () => {
   };
 
   return (
-    <div>
+    <div className='upload--image'>
       <input
         type="file"
         accept="image/*"
         onChange={handleImageChange}
       />
       {selectedImage && (
-        <div>
+        <div className='upload--image__container'>
           <h2>Imagen seleccionada:</h2>
-          <img src={selectedImage} alt="Imagen seleccionada" />
+          <img className='upload--image__file' src={selectedImage} alt="Imagen seleccionada" />
         </div>
       )}
     </div>
