@@ -5,7 +5,6 @@ import Participate from "../../components/organisms/Participate/Participate"
 const Home = () => {
   return (
     <div>
-      <Header />
       <main>
         <section>
           <SliderHome />
