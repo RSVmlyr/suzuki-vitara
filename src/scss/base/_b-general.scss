@@ -7,3 +7,23 @@ body {
 html {
   font-size: 10px;
 }
+
+label {
+  color: $blueDark;
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  width: 100%;
+}
+
+input {
+  border: 1px solid var(--gray, #D9D8D6);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  padding: 1rem;
+}
+
+select {
+  border: 1px solid var(--gray, #D9D8D6);
+  font-size: 1.6rem;
+  padding: 1rem;
+}

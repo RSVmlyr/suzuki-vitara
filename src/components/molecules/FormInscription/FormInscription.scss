@@ -1,0 +1,57 @@
+@import '../../../App.scss';
+
+.form--inscription {
+  background-color: $white;
+  &__container {
+    margin: auto;
+    width: 100%;
+    padding: 5rem 0;
+    max-width: 80%;
+    @include mq (md) {
+      padding: 6rem 0;
+      max-width: 92%;
+    }
+    @include maxArea();
+    .title {
+      color: $blueDark;
+      font-size: 3.2rem;
+      margin: 0 0 4rem;
+      @include mq (md) {
+        font-size: 4rem;
+      }
+    }
+  }
+  &__elements {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    @include mq (md) {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .form--inscription {
+      &__item  {
+        display: flex;
+          flex-direction: column;
+        margin: 0 0 4rem;
+        @include mq (md) {
+          width: 49%;
+        }
+      }
+    }
+  }
+  &__terms {
+    display: flex;
+    align-items: center;
+    gap: 7%;
+    margin: 0 0 4rem;
+    @include mq (md) {
+      gap: 1%;
+    }
+    label {
+      font-size: 1.3rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
