@@ -82,8 +82,10 @@ $browser-context: 16; // Default
   font-size: 4rem;
   font-weight: 700;
   margin: 0;
+  line-height: 1;
   @include mq (md) {
     font-size: 5.6rem;
+    line-height: 1.2;
   }
 }
 

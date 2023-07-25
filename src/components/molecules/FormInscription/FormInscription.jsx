@@ -1,3 +1,4 @@
+import UploadImage from '../../atoms/UploadImage/UploadImage'
 import './FormInscription.scss'
 
 const FormInscription = () => {
@@ -84,6 +85,30 @@ const FormInscription = () => {
       </div>
 
       <div className='form--inscription__item'>
+        <label htmlFor="placaVehiculo">
+          Placa del vehículo:
+        </label>
+        <input
+          type="text"
+          id="placaVehiculo"
+          name="placaVehiculo"
+          required
+        />
+      </div>
+
+      <div className='form--inscription__item'>
+        <label htmlFor="codigoVIN">
+          Código VIN del vehículo:
+        </label>
+        <input
+          type="text"
+          id="codigoVIN"
+          name="codigoVIN"
+          required
+        />
+      </div>
+
+      <div className='form--inscription__item'>
         <label htmlFor="concesionario">
           Concesionario donde compró el vehículo:
         </label>
@@ -100,27 +125,10 @@ const FormInscription = () => {
       </div>
 
       <div className='form--inscription__item'>
-        <label htmlFor="codigoVIN">
-          Código VIN del vehículo:
-        </label>
-        <input
-          type="text"
-          id="codigoVIN"
-          name="codigoVIN"
-          required
-        />
-      </div>
-
-      <div className='form--inscription__item'>
         <label htmlFor="placaVehiculo">
-          Placa del vehículo:
+          Subir fotografía:
         </label>
-        <input
-          type="text"
-          id="placaVehiculo"
-          name="placaVehiculo"
-          required
-        />
+        <UploadImage />
       </div>
 
     </div>
@@ -138,8 +146,9 @@ const FormInscription = () => {
     </div>
 
     <div className='form--inscription__actions'>
-      <button type="submit">Registrarse</button>
+      <button type="submit" className='btn__red'>Registrarse</button>
     </div>
+   
   </form>
 </div>
 
