@@ -87,6 +87,13 @@ $browser-context: 16; // Default
   }
 }
 
+@mixin subtitle() {
+  color: $white;
+  font-weight: 400;
+  font-size: 3.2rem;
+  margin: 0;
+}
+
 @mixin description() {
   color: $white;
   font-size: 2rem;

@@ -1,10 +1,15 @@
 @import '../../../App.scss';
 
 .participate {
-  margin: 5rem auto;
+  margin: 7rem auto;
   max-width: 90%;
   @include mq (md) {
-    max-width: 92%;
+    background-image: url('../../../assets/images/bg/bg-circle.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: contain;
+    max-width: 100%;
+    padding: 0 4%;
   }
   @include maxArea();
   &--top {
@@ -14,6 +19,71 @@
     }
     .description {
       @include description()
+    }
+  }
+  &--bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 7rem auto;
+    @include mq (md) {
+      max-width: 90%;
+    }
+  }
+  &--bottom__left,
+  &--bottom__right {
+    @include mq (md) {
+      width: 50%;
+    }
+  }
+  &--bottom__left {
+    .card--number {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      margin: 0 0 5rem;
+      @include mq (md) {
+        margin: 0 0 3rem;
+      }
+      &__left {
+        .number {
+          color: $purple;
+          font-size: 8rem;
+          font-weight: 700;
+          @include mq (md) {
+            font-size: 12rem;
+          }
+        }
+      }
+      &__right {
+        .subtitle {
+          @include subtitle();
+          margin: 0 0 1.5rem;
+        }
+        .description {
+          @include description()
+        }
+      }
+      &__info {
+        .description {
+          color: $blueDark;
+          display: block;
+          border-radius: .7rem;
+          background-color: $white;
+          margin: 0 0 0 auto;
+          font-size: 1.8rem;
+          padding: 1.5rem 1.7rem;
+          @include mq (md) {
+            max-width: 50rem;
+          }
+        }
+      }
+    }
+  }
+  &--bottom__right  {
+    img {
+      display: block;
+      margin: 0 0 0 auto;
     }
   }
 }

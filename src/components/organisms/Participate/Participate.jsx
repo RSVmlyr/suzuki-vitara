@@ -50,12 +50,12 @@ const Participate = () => {
             </div>
           </div>
           <div className='card--number__info'>
-            <span className='number'>Si tu foto es una de las 15 más votadas y cumples los términos y condiciones de la promoción, serás uno de los ganadores</span>
+            <span className='description'>Si tu foto es una de las 15 más votadas y cumples los términos y condiciones de la promoción, serás uno de los ganadores</span>
           </div>
         </div>
         <div className="participate--bottom__right">
         {isMobile ? (
-            <img className='' src={imgParticipate} loading="lazy" alt='Suzuki Vitara' title='Suzuki Vitara'/>
+            <img src={imgParticipate} loading="lazy" alt='Suzuki Vitara' title='Suzuki Vitara'/>
           ) : (
             false
           )}
