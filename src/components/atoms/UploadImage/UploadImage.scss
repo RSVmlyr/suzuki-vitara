@@ -1,0 +1,16 @@
+@import '../../../App.scss';
+
+input[type="file"] {
+  padding: .7rem;
+  width: 10%0;
+}
+
+.upload--image {
+  &__container {
+    .upload--image__file {
+      display: block;
+      margin: auto;
+      width: 15rem;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import UploadImage from '../../atoms/UploadImage/UploadImage'
 import './FormInscription.scss'
 
 const FormInscription = () => {
@@ -15,6 +16,7 @@ const FormInscription = () => {
           type="text"
           id="nombreCompleto"
           name="nombreCompleto"
+          placeholder="Nombre Completo"
           required
         />
       </div>
@@ -27,6 +29,7 @@ const FormInscription = () => {
           type="text"
           id="cedula"
           name="cedula"
+          placeholder="123456789"
           required
         />
       </div>
@@ -39,6 +42,7 @@ const FormInscription = () => {
           type="tel"
           id="celular"
           name="celular"
+          placeholder='000 000 0000'
           required
         />
       </div>
@@ -51,6 +55,7 @@ const FormInscription = () => {
           type="email"
           id="correoElectronico"
           name="correoElectronico"
+          placeholder='ejemplo@dominio.com'
           required
         />
       </div>
@@ -79,6 +84,33 @@ const FormInscription = () => {
           type="text"
           id="direccionDomicilio"
           name="direccionDomicilio"
+          placeholder='...'
+          required
+        />
+      </div>
+
+      <div className='form--inscription__item'>
+        <label htmlFor="placaVehiculo">
+          Placa del vehículo:
+        </label>
+        <input
+          type="text"
+          id="placaVehiculo"
+          name="placaVehiculo"
+          placeholder='XXX 000'
+          required
+        />
+      </div>
+
+      <div className='form--inscription__item'>
+        <label htmlFor="codigoVIN">
+          Código VIN del vehículo:
+        </label>
+        <input
+          type="text"
+          id="codigoVIN"
+          name="codigoVIN"
+          placeholder='00X00X00XX 00'
           required
         />
       </div>
@@ -100,27 +132,10 @@ const FormInscription = () => {
       </div>
 
       <div className='form--inscription__item'>
-        <label htmlFor="codigoVIN">
-          Código VIN del vehículo:
-        </label>
-        <input
-          type="text"
-          id="codigoVIN"
-          name="codigoVIN"
-          required
-        />
-      </div>
-
-      <div className='form--inscription__item'>
         <label htmlFor="placaVehiculo">
-          Placa del vehículo:
+          Subir fotografía:
         </label>
-        <input
-          type="text"
-          id="placaVehiculo"
-          name="placaVehiculo"
-          required
-        />
+        <UploadImage />
       </div>
 
     </div>
@@ -138,8 +153,9 @@ const FormInscription = () => {
     </div>
 
     <div className='form--inscription__actions'>
-      <button type="submit">Registrarse</button>
+      <button type="submit" className='btn__red'>Registrarse</button>
     </div>
+   
   </form>
 </div>
 
