@@ -7,6 +7,7 @@ import { Galery } from '../pages/Galery/Galery'
 import { Awards } from '../pages/Awards/Awards'
 import { Ranking } from '../pages/Ranking/Ranking'
 import { Faqs } from '../pages/Faqs/Faqs'
+import PageNotFound from '../pages/404/404'
 
 
 export const AppRouter = () => {
@@ -19,6 +20,7 @@ export const AppRouter = () => {
             <Route path='/ranking' element={<Ranking/>}/>
             <Route path='/faqs' element={<Faqs/>}/>
             <Route path='/condiciones' element={<Terms/>} />
+            <Route path="*" element={<PageNotFound />} />
         </Route>
     </Routes>
   )
