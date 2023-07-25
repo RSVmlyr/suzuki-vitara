@@ -1,33 +1,30 @@
-import { Link } from "react-router-dom";
-import "./Header.scss";
-import Logo from "../../atoms/Logo/Logo";
+import './Header.scss';
+import Logo from '../../atoms/Logo/Logo';
+import BurguerIcon from '../../../assets/images/icon/menu-burguer.svg';
+import CloseIcon from '../../../assets/images/icon/close-icon.svg';
+import { useEffect, useState } from 'react';
+import { NavBar } from '../../organisms/Navbar/NavBar';
+import { useMediaQuery } from 'react-responsive';
 
 const Header = () => {
+  const [burguer, setBurguer] = useState(true);
+  const isMobile = useMediaQuery({ minWidth: 1024 });
+
+  const handleClick = () => {
+    setBurguer(!burguer)
+  }
+
   return (
     <header className="header">
-      <Logo />
-      <nav className="header--nav">
-        <ul className="header--nav__list">
-          <li className="header--nav__item">
-            <Link to="/">HOME</Link>
-          </li>
-          <li className="header--nav__item">
-            <Link to="/premios">PREMIOS</Link>
-          </li>
-          <li className="header--nav__item">
-            <Link to="/galeria">GALERÍA</Link>
-          </li>
-          <li className="header--nav__item">
-            <Link to="/ranking">RANKING</Link>
-          </li>
-          <li className="header--nav__item">
-            <Link to="/faqs">FAQS</Link>
-          </li>
-          <li className="header--nav__item">
-            <Link to="/condiciones">CONDICIONES</Link>
-          </li>
-        </ul>
-      </nav>
+      <div className="header--top">
+        <Logo />
+        {!isMobile ? <button className={burguer ? 'burguer-icon' : "burguer-icon close"} onClick={handleClick}>
+        </button> : false}
+        
+      </div>
+        {!isMobile ? <NavBar isMobile={burguer} />: <NavBar isMobile={!isMobile} />}
+      {/* {!burguer ? <NavBar /> : false}
+      {isMobile ? <NavBar className={!burguer ? "dissable": "header--nav"}/> : false} */}
     </header>
   );
 };

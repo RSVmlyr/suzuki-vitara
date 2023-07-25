@@ -1,0 +1,9 @@
+nav {
+    &.dissable {
+        display: none;
+    }
+
+    &.header--nav {
+        display: block;
+    }
+}
