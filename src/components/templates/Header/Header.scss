@@ -1,26 +1,105 @@
 @import '/src/App.scss';
 .header {
-  // background-color: gray;
-  display: flex;
-  justify-content: space-between;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  @include mq (mdx) {
+    
+    width: 90%;
+    max-width: 132rem;
+    margin: 1.6rem auto;
+    display: flex;
+    justify-content: space-between;
+  }
 
-  &--nav {
-    &__list {
-      display: flex;
-      align-items: center;
-      
-      gap: 1.6rem;
-      padding: 2.5rem 2rem;
+
+  &--top {
+    width: 90%;
+    max-width: 132rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin: 0 auto;
+    
+
+    figure {
       margin: 0;
+
+      &.logo {
+        padding: 1.6rem;
+        @include mq (md) {
+          padding: 0;
+        }
+      }
+    }
+
+    .burguer-icon {
+      background-color: transparent;
+      border: none;
+      background: url("/src/assets/images/icon/menu-burguer.svg") center/75% 100% no-repeat;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 2.5rem;
+      width: 2.5rem;
+      cursor: pointer;
+      transform: rotate(-180deg);
+      transition: 2s all ease;
+      &.close {
+      //   height: 2.5rem;
+      //   width: 2.5rem;
+        background-image: url("/src/assets/images/icon/close-icon.svg");
+      }
+    }
+  }
+
+  
+  .dissable {
+    display: none;
+  }
+  
+  &--nav {
+    display: block;
+    
+    &__list {
+      
+      padding: 0;
+
+      @include mq (mdx) {
+        display: flex;
+        align-items: center;
+        
+        gap: 1.6rem;
+        padding: 2.5rem 2rem;
+        margin: 0;
+      }
     }
     &__item {
       list-style: none;
+
       a {
-          text-decoration: none;
+        text-decoration: none;
         font-size: 1.8rem;
         font-weight: 600;
         color: $white;
         padding: 0 1.6rem;
+        
+        &.active {
+          position: relative;
+          display: block;
+          &::after {
+            @include mq (mdx) {
+              position: absolute;
+              content: "";
+              width: 100%;
+              height: 0.3rem;
+              bottom: -16px;
+              left: 0;
+              background-color: $white;
+              
+            }
+          }
+
+        }
       }
     }
   }
