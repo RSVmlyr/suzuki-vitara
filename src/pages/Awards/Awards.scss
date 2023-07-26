@@ -1,0 +1,41 @@
+@import '../../App.scss';
+
+.awards {
+    
+    &--top {
+        // display: flex;
+        // width: 100;
+        // justify-content: space-between;
+        // align-items: center;
+        // flex-wrap: wrap;
+
+        &__award {
+            display: flex;
+            align-items: center;
+            padding: 0;
+
+            h2 {
+                margin: 0;
+                padding: 0;
+                transform: rotate(-90deg);
+            }
+            .image {
+                // width: 80%;
+                figure {
+                    width: 100%;
+                    max-width: 44rem;
+                    margin: 0 auto;
+    
+                    // @include mq (mdx) {
+                    //     height: 10rem;
+                    // }
+    
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+    }
+}
