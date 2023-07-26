@@ -1,5 +1,6 @@
 import useGetDealers from '../../../hooks/useGetDealers'
 import UploadImage from '../../atoms/UploadImage/UploadImage'
+import { Link } from 'react-router-dom';
 import './FormInscription.scss'
 
 const FormInscription = () => {
@@ -33,7 +34,7 @@ const FormInscription = () => {
               type="text"
               id="cedula"
               name="cedula"
-              placeholder="123456789"
+              placeholder="0000000000"
               required
             />
           </div>
@@ -152,7 +153,7 @@ const FormInscription = () => {
             required
           />
           <label htmlFor="terminosYCondiciones">
-            Confirmo que he leído la política de protección de datos personales, acepto recibir información con fines de seguimiento a mi cotización, autorizo el tratamiento de mis datos personales conforme los siguientes términos y condiciones.
+            Confirmo que he leído la política de protección de datos personales, acepto recibir información con fines de seguimiento a mi cotización, autorizo el tratamiento de mis datos personales conforme los siguientes <Link to="/condiciones">términos y condiciones</Link>.
           </label>
         </div>
 
