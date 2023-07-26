@@ -22,6 +22,7 @@ const UploadImage = () => {
     <div className='upload--image'>
       <input
         type="file"
+        name="uploadImage"
         accept="image/*"
         onChange={handleImageChange}
         required
