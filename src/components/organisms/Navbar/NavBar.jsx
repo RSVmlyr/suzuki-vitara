@@ -1,43 +1,48 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
-export const NavBar = ({isMobile}) => {
+const linkNavbar = [
+  {
+    name: "HOME",
+    path: "/",
+  },
+  {
+    name: "PREMIOS",
+    path: "/premios",
+  },
+  {
+    name: "GALERÍA",
+    path: "/galeria",
+  },
+  {
+    name: "RANKING",
+    path: "/ranking",
+  },
+  {
+    name: "FAQS",
+    path: "/faqs",
+  },
+  {
+    name: "CONDICIONES",
+    path: "/condiciones",
+  }
+]
+
+
+export const NavBar = ({isMobile, setBurguer}) => {
   return (
-    <nav  className={isMobile ? "dissable": "header--nav"}>
-        <ul className="header--nav__list">
-          <li className="header--nav__item">
-            <NavLink to="/">HOME</NavLink>
-          </li>
-          <li className="header--nav__item">
-            <NavLink 
-              to="/premios"
-              className={({ isActive }) => isActive ? "active": "navbar__menu"}
-            >PREMIOS</NavLink>
-          </li>
-          <li className="header--nav__item">
-            <NavLink 
-              to="/galeria"
-              className={({ isActive }) => isActive ? "active": "navbar__menu"}
-            >GALERÍA</NavLink>
-          </li>
-          <li className="header--nav__item">
-            <NavLink 
-              to="/ranking"
-              className={({ isActive }) => isActive ? "active": "navbar__menu"}
-            >RANKING</NavLink>
-          </li>
-          <li className="header--nav__item">
-            <NavLink 
-              to="/faqs"
-              className={({ isActive }) => isActive ? "active": "navbar__menu"}
-            >FAQS</NavLink>
-          </li>
-          <li className="header--nav__item">
-            <NavLink 
-              to="/condiciones"
-              className={({ isActive }) => isActive ? "active": "navbar__menu"}
-            >CONDICIONES</NavLink>
-          </li>
+    <nav  className={isMobile ? 'dissable': 'header--nav'}>
+        <ul className='header--nav__list'>
+          {linkNavbar.map(link => {
+            return (
+            <li className='header--nav__item' key={link.name}>
+              <NavLink to={link.path} 
+                className={({ isActive }) => isActive ? 'active' : 'navbar__menu'}
+                onClick={() => setBurguer(true)}>
+                  {link.name}
+              </NavLink>
+            </li>)
+          })}
         </ul>
       </nav> 
   )

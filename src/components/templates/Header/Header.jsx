@@ -16,15 +16,18 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="header--top">
+      <div className='header__content'>
+        <div className="header--top">
         <Logo />
         {!isMobile ? <button className={burguer ? 'burguer-icon' : "burguer-icon close"} onClick={handleClick}>
         </button> : false}
         
-      </div>
-        {!isMobile ? <NavBar isMobile={burguer} />: <NavBar isMobile={!isMobile} />}
+        </div>
+        {!isMobile ? <NavBar isMobile={burguer} setBurguer={setBurguer}/>: <NavBar isMobile={!isMobile} setBurguer={setBurguer}/>}
       {/* {!burguer ? <NavBar /> : false}
       {isMobile ? <NavBar className={!burguer ? "dissable": "header--nav"}/> : false} */}
+      </div>
+
     </header>
   );
 };
