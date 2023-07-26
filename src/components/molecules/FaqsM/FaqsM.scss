@@ -1,13 +1,12 @@
-@import '../../App.scss';
+@import '../../../App.scss';
 
-.terms {
+.faqs {
   &--container {
     margin: auto;
     width: 100%;
     max-width: 90%;
     @include mq (md) {
-      margin: 0 0 0  auto;
-      max-width: 95%;
+      max-width: 75%;
     }
     @include maxArea()
   }
