@@ -1,35 +1,68 @@
 @import '/src/App.scss';
 .header {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
+  background-color: $blueDark;
+  height: 7.2rem;
+  margin-bottom: 3.8rem;
+  
   @include mq (mdx) {
-    
+    height: 10rem;
     width: 90%;
     max-width: 132rem;
-    margin: 1.6rem auto;
-    display: flex;
+    margin: 0 auto;
     justify-content: space-between;
+  }
+
+  &__content {
+    width: 100%;
+    position: fixed;
+    background-color: $blueDark;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    @include mq (mdx) {
+      flex-wrap: nowrap;
+      width: 90%;
+      max-width: 132rem;
+      margin: 0 auto;
+
+    }
   }
 
 
   &--top {
-    width: 90%;
-    max-width: 132rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     margin: 0 auto;
-    
+    padding: 1.6rem;
+
+    @include mq (md) {
+      padding: 1.9rem;
+    }
 
     figure {
       margin: 0;
 
       &.logo {
-        padding: 1.6rem;
+        width: 6rem;
+        height: 4rem;
+
         @include mq (md) {
           padding: 0;
+          width: 7.6rem;
+          height: 6.1rem;
         }
+
+        a {
+          display: block;
+          img {
+            width: 100%;
+          }
+        }
+
       }
     }
 
@@ -42,12 +75,12 @@
       height: 2.5rem;
       width: 2.5rem;
       cursor: pointer;
-      transform: rotate(-180deg);
-      transition: 2s all ease;
+      // transform: rotate(-180deg);
+      // transition: 2s all ease;
       &.close {
-      //   height: 2.5rem;
-      //   width: 2.5rem;
         background-image: url("/src/assets/images/icon/close-icon.svg");
+        height: 2rem;
+        width: 2rem;
       }
     }
   }
@@ -59,6 +92,14 @@
   
   &--nav {
     display: block;
+    width: 100%;
+    height: 100vh;
+    
+    @include mq (mdx) {
+      width: auto;
+      height: auto;
+
+    }
     
     &__list {
       
@@ -69,33 +110,54 @@
         align-items: center;
         
         gap: 1.6rem;
-        padding: 2.5rem 2rem;
+        padding: 2.3rem 2rem;
         margin: 0;
       }
     }
     &__item {
       list-style: none;
+      text-align: center;
 
       a {
         text-decoration: none;
         font-size: 1.8rem;
         font-weight: 600;
         color: $white;
-        padding: 0 1.6rem;
+        padding: 1.6rem;
+        display: block;
+        
+        &:hover {
+          background-color: #0e2e75;
+          position: relative;
+          @include mq (mdx) {
+            
+            &::after {
+              position: absolute;
+              content: "";
+              width: 100%;
+              height: 0.3rem;
+              bottom: -10px;
+              left: 0;
+              background-color: $white;
+            }
+          }
+
+        }
         
         &.active {
           position: relative;
           display: block;
+          
+
           &::after {
             @include mq (mdx) {
               position: absolute;
               content: "";
               width: 100%;
               height: 0.3rem;
-              bottom: -16px;
+              bottom: -10px;
               left: 0;
               background-color: $white;
-              
             }
           }
 
