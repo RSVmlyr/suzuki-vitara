@@ -14,20 +14,26 @@ const FormInscription = () => {
   const [isVerified, setIsVerified] = useState(false);
 
   const handleFormSubmit = (e) => {
-    const body = {
-      "field_names": "Edwin Mesa",
-      "field_type_id": "cc",
-      "field_number_id": "1111107",
-      "field_cellphone": "1111111",
-      "email": "ejemplo02@example.com",
-      "field_city": "b",
-      "field_address": "aaa",
-      "field_vin": "JS3TE944274204712",
-      "car_plate": "ebs074",
-      "imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAACgCAYAAABkDQwTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARmSURBVHgB7d0xTxRBGIfx92QRiJErKCgIIpWEBr6AhaGA1ljZQGFDYY2fAWsKWmjstNXOjtaKXOcBIYZCOGngBA7ZgkRihL13l/nf7D6/REpF78nM3fA6W7NIDIxMXxoyq110Jk9bjaZF4IEBYkQIucQidPK53/CvqaVz2zmI710LKyHkiBByRAg5IoQcEUKOCCFHhJCL8pxwaOHMUB6shJAjQsjVLDDvNMxh48iQ3exc3Xb3u19jFNM3rISQI0LIST8d3zUNw6fgYjQ2EpsY/f87L/X0DSsh5IgQckQIOSKEHBFCjgghR4SQk54Tcg4YRnoO2MtYCSFHhJBzT9EwDdPb+luPLLn61S3vj/DyTN9EOVkd2t6+b8MYH+sY7kaEGczM1c2DVT+bQiJkGqacQk3f8MEEckQIOSKEHBFCjgghR4SQI0LIFXJOyDlgOYWavmElhBwRQi5hGgZ/S39U5/HsTfv7bt+0dSudvqnUAMP65oD9Og53B9Tq2qDlsbzUtvrjOJ5LUjvvu/rq+16rFeHGoOumKq/VtSHL4/XL39FEmMeNCJmGQRG6nb7hgwnkiBByRAg5IoQcEUKOCCFHhJAjQsgRIeSIEHJECDmuAclgebFt9eHw98rUh8s/vJAiwgyWl07tCZcb3Ru2Y8gRIeSIEHJECDkihBwRQo4IIUeEkCNCyBEh5IgQckQIuUoNMKSDCJ67aD58emgeMd0lo1StCBfb5jE7V3fdYVOVu2TyYjuGHBFCjgghR4SQI0LIESHkiBByRAg5IoQcEUKOCCFHhJDjGpAMmL65X0SYAdM394vtGHJECDkihBwRQo4IIUeEkCNCyBEh5IgQckQIOSKEHBFCrhIDDOubA64pmLwUf2aMqhHhxqBrmgVh8MpAjgghR4SQI0LIESHkiBByRAg5IoQcEUKOCCFHhJAjQshVYoDBe5fMtdW1IfN49/bEPOrD1XoAz40Idw7K+Zf33iVzzR/hqVXRzkH6NXtLNyKcWjo3IK/5le464j0h5NKVsGkOe/sPnprD+FjH0Lu8b8lG6ta62oZb5pC0f25PmsPM3LTruz1sHBl61/zKhSvEV8/txdbW9jdzYDtGIT5+7bhWwVQhRzQTo7cff5T1U3fZhXpdC4mwsXH7bzO0cGaIz5f3fbeGmJ6mFBEi2zHkiBByRAg5IoQcEUKOh+lk4J2GQTaFRFj2c0CmYe5XIREyfVNO3U7DePGeEHJ5VsKmOTB9E8bOj5olx91vpUnie13zCH6L48AI0zcheJ8wWrvoTJ62Gk0LiO0YctIjGqZvwuj1f2dphEzfhBFqGsaL7RhyRAg5IoQcEUKOCCFHhJCTHtFwDhhGqGkYL2mETN+EEWoaxovtGHKKlbBpDt7pm6pKksumRSKaZ6F6p2+qSjEN48V2DLko/6PTXVMhVRXraUOUEd41fVNV6mkYL7ZjyBEh5IgQckQIOSKEHBFCLsqzDqZvyiXKCJm+KRe2Y8jFtBI2DaX0By0JLczGkB58AAAAAElFTkSuQmCC="
+    const formInscription = document.querySelector('.form--inscription')
+    let srcUploadImageFile
+    if (formInscription) {
+      const uploadImageFile = formInscription.querySelector('.upload--image__file')
+      srcUploadImageFile = uploadImageFile.getAttribute('src')
     }
+    const body = {
+      "field_names": e.target.name.value,
+      "field_dealers": e.target.dealer.value,
+      "field_number_id": e.target.identification.value,
+      "field_cellphone": e.target.phoneNumber.value,
+      "email": e.target.email.value,
+      "field_city": e.target.city.value,
+      "field_address": e.target.address.value,
+      "field_vin": e.target.codeVin.value,
+      "car_plate": e.target.vehiclePlate.value,
+      "imagen": srcUploadImageFile
+    }
+    console.log( body );
 
-    console.dir(e.target.name);
     e.preventDefault();
     if (isVerified) {
       // Realizar el envío del formulario
@@ -35,7 +41,6 @@ const FormInscription = () => {
     } else {
       console.log('Por favor, verifica el captcha antes de enviar el formulario.');
     }
-
 
   };
 

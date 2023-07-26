@@ -1,13 +1,77 @@
 @import '../../../App.scss';
 
 .faqs {
+  margin-bottom: 100px;
+
   &--container {
+    color: $white;
     margin: auto;
-    width: 100%;
     max-width: 90%;
+    width: 100%;
+
     @include mq (md) {
       max-width: 75%;
     }
-    @include maxArea()
+    
+    @include maxArea();
+
+    .title {
+      font-size: 50px;
+      margin: 50px 0;
+
+      @include mq (md) {
+        font-size: 65px;
+      }
+    }
+
+    .accordion {
+      &__section {
+        border-bottom: 1px solid $white;
+        padding: 30px 0;
+      }
+
+      &__title {
+        background: none;
+        border: none;
+        color: $white;
+        cursor: pointer;
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 0;
+        position: relative;
+        text-align: left;
+        width: 100%;
+
+        &::after {
+          background-image: url('../../../assets/images/icon/icon-plus.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          content: '';
+          display: block;
+          font-weight: bold;
+          height: 35px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 35px;
+        }
+
+        &.active {
+          &::after {
+            background-image: url('../../../assets/images/icon/icon-minus.png');
+          }
+        }
+      }
+
+      &__content {
+        p {
+          font-size: 16px;
+          margin: 40px 0 0;
+        }
+      }
+    }
   }
 }
