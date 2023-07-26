@@ -2,6 +2,7 @@ body {
   background: linear-gradient(180deg, #1A1E44 0%, #6E23B1 50.52%, #354FBE 100%);
   font-family: $roboto;
   min-height: 100vh;
+  padding-right: 0 !important;
 }
 
 html {
@@ -51,4 +52,8 @@ select {
   &__red {
     background-color: $red;
   }
+}
+
+.hidden {
+  display: none !important;
 }

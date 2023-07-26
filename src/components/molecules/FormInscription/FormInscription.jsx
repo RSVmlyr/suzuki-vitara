@@ -1,26 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import React, { useRef } from 'react';
+// import { useForm } from 'react-hook-form';
 import useGetDealers from '../../../hooks/useGetDealers'
 import useCities from '../../../hooks/useCities';
 
 import UploadImage from '../../atoms/UploadImage/UploadImage'
 import { Link } from 'react-router-dom';
-// import ReCAPTCHA from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './FormInscription.scss'
+import useSetForm from '../../../hooks/useSetForm';
 
 const FormInscription = () => {
   const { data } = useGetDealers('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/list-dealers')
-  const cities = useCities();
-
+  // const endPointPhoto = 'https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo'
+  const cities = useCities()
   const [isVerified, setIsVerified] = useState(false);
+  const formRef = useRef(null);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
     const formInscription = document.querySelector('.form--inscription')
     let srcUploadImageFile
     if (formInscription) {
       const uploadImageFile = formInscription.querySelector('.upload--image__file')
       srcUploadImageFile = uploadImageFile.getAttribute('src')
     }
-    const body = {
+    const bodyForm = {
       "field_names": e.target.name.value,
       "field_dealers": e.target.dealer.value,
       "field_number_id": e.target.identification.value,
@@ -32,15 +37,18 @@ const FormInscription = () => {
       "car_plate": e.target.vehiclePlate.value,
       "imagen": srcUploadImageFile
     }
-    console.log( body );
 
-    e.preventDefault();
+    const response = await useSetForm(bodyForm);
+    console.log(response);
+    
     if (isVerified) {
       // Realizar el envío del formulario
       console.log('Formulario enviado con éxito!');
     } else {
       console.log('Por favor, verifica el captcha antes de enviar el formulario.');
     }
+
+    formRef.current.reset();
 
   };
 
@@ -52,7 +60,7 @@ const FormInscription = () => {
   return (
   
     <div className='form--inscription'>
-      <form className='form--inscription__container' onSubmit={handleFormSubmit}>
+      <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
         <h2 className='title'>Formulario de inscripción</h2>
         <div className='form--inscription__elements'>
 
@@ -200,15 +208,15 @@ const FormInscription = () => {
           </label>
         </div>
 
-        {/* <div className='form--inscription__captcha'>
+        <div className='form--inscription__captcha'>
           <ReCAPTCHA
             sitekey="TU_CLAVE_DEL_SITIO"
             onChange={handleRecaptchaChange}
           />
-        </div> */}
+        </div>
 
         <div className='form--inscription__actions'>
-          <button type="submit" className='btn__red'>Registrarse</button>
+          <button className='btn__red'>Registrarse</button>
         </div>
       
       </form>
