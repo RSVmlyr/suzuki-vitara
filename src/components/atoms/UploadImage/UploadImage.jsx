@@ -24,6 +24,7 @@ const UploadImage = () => {
         type="file"
         accept="image/*"
         onChange={handleImageChange}
+        required
       />
       {selectedImage && (
         <div className='upload--image__container'>
