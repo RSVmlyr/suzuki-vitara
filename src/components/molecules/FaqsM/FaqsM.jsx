@@ -52,6 +52,7 @@ const FaqsM = () => {
   return (
     <div className="faqs">
       <div className="faqs--container">
+      <h1 className="title">Preguntas frecuentes</h1>
         {faqsData.map((faq, index) => (
           <AccordionItem key={index} title={faq.title} content={faq.content} />
         ))}
