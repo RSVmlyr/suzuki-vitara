@@ -10,9 +10,6 @@ export const Galery = () => {
           <h1 className='title'>Galeria</h1>
           <div className='gallery--list'>
             <CardGallery />
-            <CardGallery />
-            <CardGallery />
-            <CardGallery />
           </div>
         </div>
       </div>

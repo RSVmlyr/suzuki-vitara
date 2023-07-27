@@ -50,7 +50,6 @@ const FaqsM = () => {
   ];
 
   return (
-    <main>
       <div className="faqs">
         <div className="faqs--container">
         <h1 className="title">Preguntas frecuentes</h1>
@@ -59,7 +58,6 @@ const FaqsM = () => {
           ))}
         </div>
       </div>
-    </main>
   );
 };
 

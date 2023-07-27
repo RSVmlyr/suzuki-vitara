@@ -4,7 +4,6 @@ import './Terms.scss'
 
 const Terms = () => {
   return (
-    <main>
       <div className="terms">
         <div className="terms--container">
           <div className="terms--container__left">
@@ -22,7 +21,6 @@ const Terms = () => {
           </div>
         </div>
       </div>
-    </main>
 
   )
 }
