@@ -27,9 +27,15 @@
   }
 
   &--list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    column-count: 2;
+    column-gap: 20px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 10px;
+
+    @include mq (md) {
+      column-count: 4;
+    }
 
     .image--card {
       border-radius: 10px;
@@ -38,27 +44,70 @@
 
       img {
         height: auto;
-        max-width: 100%;
+        width: 100%;
       }
     }
 
     .card {
       &--gallery {
-        width: calc(50% - 5px);
+        break-inside: avoid;
+        margin-bottom: 50px;
+        // width: calc(50% - 5px);
 
         &__top {
           position: relative;
 
           .image--actions {
+            align-items: center;
             bottom: 0;
             display: flex;
             justify-content: space-between;
+            padding: 10px;
             position: absolute;
-            width: 100%;
+            width: calc(100% - 20px);
+
+            .likes--card {
+              background-color: #505D68;
+              border-radius: 25px;
+              font-size: 14px;
+              padding: 8px 10px;
+              position: relative;
+
+              &::after {
+                background-image: url('../../assets/images/icon/icon-thumb.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: inline-block;
+                margin-left: 10px;
+                width: 12px;
+                height: 12px;
+                content: '';
+              }
+            }
 
             .vote--card {
+              background-color: $white;
+              border-radius: 25px;
+              color: $black;
+              font-size: 14px;
               display: block;
+              padding: 12px 20px;
+              text-decoration: none;
+
+              &:hover {
+                background-color: #505D68;
+                color: $white;
+              }
             }
+          }
+        }
+
+        &__bottom {
+          .image--autor {
+            display: block;
+            font-size: 14px;
+            margin-top: 10px;
           }
         }
       }
