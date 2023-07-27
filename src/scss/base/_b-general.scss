@@ -40,6 +40,9 @@ select {
   font-size: 1.6rem;
   padding: 1rem;
   text-transform: capitalize;
+  option {
+    text-transform: uppercase;
+  }
 }
 
 .btn {

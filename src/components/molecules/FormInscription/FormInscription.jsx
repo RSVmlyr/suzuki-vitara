@@ -15,7 +15,7 @@ const FormInscription = () => {
   // const endPointPhoto = 'https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo'
   const cities = useCities()
   const [isVerified, setIsVerified] = useState(false);
-  const formRef = useRef(null);
+  // const formRef = useRef(null);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -39,16 +39,14 @@ const FormInscription = () => {
     }
 
     const response = await useSetForm(bodyForm);
-    console.log(response);
     
-    if (isVerified) {
-      // Realizar el envío del formulario
-      console.log('Formulario enviado con éxito!');
-    } else {
-      console.log('Por favor, verifica el captcha antes de enviar el formulario.');
-    }
+    // if (isVerified) {
+    //   console.log('Formulario enviado con éxito!');
+    // } else {
+    //   console.log('Por favor, verifica el captcha antes de enviar el formulario.');
+    // }
 
-    formRef.current.reset();
+    // formRef.current.reset();
 
   };
 
@@ -58,9 +56,9 @@ const FormInscription = () => {
   };
 
   return (
-  
+    // ref={formRef}
     <div className='form--inscription'>
-      <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
+      <form className='form--inscription__container' onSubmit={handleFormSubmit}>
         <h2 className='title'>Formulario de inscripción</h2>
         <div className='form--inscription__elements'>
 
