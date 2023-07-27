@@ -6,7 +6,6 @@ import './Home.scss'
 const Home = () => {
   return (
     <div>
-      <main>
         <section>
           <SliderHome />
         </section>
@@ -16,7 +15,6 @@ const Home = () => {
         <section>
           <FormInscription />
         </section>
-      </main>
     </div>
   )
 }
