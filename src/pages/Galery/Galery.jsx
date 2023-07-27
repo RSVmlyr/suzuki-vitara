@@ -1,15 +1,21 @@
 import React from 'react'
 import CardGallery from '../../components/atoms/CardGallery/CardGallery'
+import './Galery.scss'
 
 export const Galery = () => {
   return (
-    <div className='gallery'>
-      <div className='gallery__container'>
-        <h1 className='title'>Galeria</h1>
-        <div className='gallery__list'>
-          <CardGallery />
+    <main>
+      <div className='gallery'>
+        <div className='gallery--container'>
+          <h1 className='title'>Galeria</h1>
+          <div className='gallery--list'>
+            <CardGallery />
+            <CardGallery />
+            <CardGallery />
+            <CardGallery />
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
