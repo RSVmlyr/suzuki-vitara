@@ -76,7 +76,6 @@ export const Footer = () => {
         
         <div className='footer--bottom'>
           {contentFooter.map(content => {
-            console.log(content.title);
             return (
               <div className='bottom--content' key={content.title}>
                 <h4 className='bottom--content__title'>{content.title}</h4>

@@ -1,7 +1,6 @@
 import Swal from 'sweetalert2';
 
 const useSetForm = async (body) => {
-  console.log(body);
   try {
     const response = await fetch('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo', {
       method: 'POST',

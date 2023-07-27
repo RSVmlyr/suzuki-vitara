@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React, { useRef } from 'react';
 // import { useForm } from 'react-hook-form';
 import useGetDealers from '../../../hooks/useGetDealers'
@@ -13,13 +13,31 @@ import useSetForm from '../../../hooks/useSetForm';
 const FormInscription = () => {
   const { data } = useGetDealers('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/list-dealers')
   // const endPointPhoto = 'https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo'
-  const cities = useCities()
+  const [uniqueCities, setUniqueCities] = useState([]);
+  const [selectedValueCity, setSelectedValueCity] = useState('');
+  const [selectedDealers, setSelectedDealers] = useState([]);
+  const [dataDealers, setDataDealers] = useState([])
+
+  useEffect(() => {
+    if (data && Array.isArray(data)) {
+      const citiesSet = new Set(data.map((item) => item.city.toLowerCase().trim()));
+      const sortedCities = Array.from(citiesSet).sort();
+      setUniqueCities(sortedCities);
+    }
+  }, [data]);
+
+  const handleSelectChangeDealers = (event) => {
+    const selectedDealer = event.target.value;
+    setSelectedDealers(selectedDealer);
+  };
+
   const [isVerified, setIsVerified] = useState(false);
   // const formRef = useRef(null);
 
+  const formInscription = document.querySelector('.form--inscription')
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const formInscription = document.querySelector('.form--inscription')
     let srcUploadImageFile
     if (formInscription) {
       const uploadImageFile = formInscription.querySelector('.upload--image__file')
@@ -53,6 +71,27 @@ const FormInscription = () => {
   const handleRecaptchaChange = (value) => {
     // El valor "value" indica si el captcha ha sido verificado correctamente.
     setIsVerified(!!value);
+  };
+
+  const handleSelectChangeCity = (event) => {
+    const selectedOption = event.target.value;
+    // console.log('C', selectedOption);
+    let dealerSelect = formInscription.querySelector('#dealer');
+    // console.log('D', data);
+    const filteredData = data && Array.isArray(data)
+    ? data.filter((item) => item.city.toLowerCase() === selectedOption)
+    : [];
+    setDataDealers(filteredData)
+    // console.log(dataDealers);
+    if (formInscription) {
+      dealerSelect.removeAttribute('disabled');
+      if (selectedOption === '') {
+        dealerSelect.setAttribute('disabled', 'true');
+      }
+    }
+
+    setSelectedValueCity(selectedOption);
+
   };
 
   return (
@@ -122,10 +161,11 @@ const FormInscription = () => {
               id="city"
               name="city"
               required
+              onChange={handleSelectChangeCity}
             >
               <option value="">Seleccionar</option>
-              {cities && cities.map((item) => (
-                <option key={item.id} value={item.id}>{item.name}</option>
+              {uniqueCities && uniqueCities.map((city) => (
+                <option key={city} value={city}>{city}</option>
               ))}
             </select>
           </div>
@@ -177,10 +217,14 @@ const FormInscription = () => {
               id="dealer"
               name="dealer"
               required
+              disabled={selectedValueCity === ""}
+              onChange={handleSelectChangeDealers}
             >
               <option value="">Seleccionar</option>
-              {data && data.map((item) => (
-                <option key={item.id} value={item.id}>{item.name}</option>
+              {dataDealers.map((item) => (
+                <option key={item.id} value={item.name}>
+                  {item.name}
+                </option>
               ))}
             </select>
           </div>
