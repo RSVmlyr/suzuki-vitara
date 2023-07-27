@@ -22,7 +22,7 @@ const useSetForm = async (body) => {
           body: 'custom-swal-body',
         }
       })
-      return data; // Devolvemos los datos si la solicitud es exitosa
+      return { data, serviceStatus: true }
     } else {
       const errorData = await response.json();
       // console.log(errorData.error);

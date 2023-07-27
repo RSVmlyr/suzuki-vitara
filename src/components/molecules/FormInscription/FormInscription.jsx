@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import React, { useRef } from 'react';
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import useGetDealers from '../../../hooks/useGetDealers'
 import useCities from '../../../hooks/useCities';
 
@@ -32,7 +32,7 @@ const FormInscription = () => {
   };
 
   const [isVerified, setIsVerified] = useState(false);
-  // const formRef = useRef(null);
+  const formRef = useRef(null);
 
   const formInscription = document.querySelector('.form--inscription')
 
@@ -57,14 +57,15 @@ const FormInscription = () => {
     }
 
     const response = await useSetForm(bodyForm);
-    
+    if (response) {
+      response.serviceStatus && formRef.current.reset();
+    }
+
     // if (isVerified) {
     //   console.log('Formulario enviado con éxito!');
     // } else {
     //   console.log('Por favor, verifica el captcha antes de enviar el formulario.');
     // }
-
-    // formRef.current.reset();
 
   };
 
@@ -95,9 +96,8 @@ const FormInscription = () => {
   };
 
   return (
-    // ref={formRef}
     <div className='form--inscription'>
-      <form className='form--inscription__container' onSubmit={handleFormSubmit}>
+      <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
         <h2 className='title'>Formulario de inscripción</h2>
         <div className='form--inscription__elements'>
 
