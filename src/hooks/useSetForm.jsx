@@ -14,8 +14,8 @@ const useSetForm = async (body) => {
       const data = await response.json();
       Swal.fire({
         icon: 'success',
-        title: 'Tú foto ha pasado a revisión',
-        text: 'Una vez sea aprobada, recibirás una notificación vía correo electrónico para que compartas la foto con tus amigos y voten por ti.',
+        title: 'Tu foto y tu información han pasado a revisión',
+        text: 'Una vez sea aprobado el registro, recibirás una notificación vía correo electrónico y/o mensaje de texto para que compartas la foto con tus amigos y voten por ti.',
         confirmButtonColor: '#DF013A',
         confirmButtonText: 'Cerrar',
       })

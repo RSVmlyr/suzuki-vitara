@@ -76,7 +76,8 @@ const FormInscription = () => {
 
   const [phoneNumber, setPhoneNumber] = useState('');
   const handlePhoneNumber = (e) => {
-    const filteredPhoneNumber = e.target.value.replace(/\D/g, '');
+    const inputPhoneNumber = e.target.value;
+    const filteredPhoneNumber = inputPhoneNumber.replace(/\D/g, '');
     setPhoneNumber(filteredPhoneNumber);
   };
 
@@ -134,7 +135,7 @@ const FormInscription = () => {
 
   return (
     <div className='form--inscription'>
-      <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
+      <form ref={formRef} id="form--inscription__container" className='form--inscription__container' onSubmit={handleFormSubmit}>
         <h2 className='title'>Formulario de inscripción</h2>
         <div className='form--inscription__elements'>
 
@@ -182,9 +183,11 @@ const FormInscription = () => {
               name="phoneNumber"
               placeholder='000 000 0000'
               required
+              maxLength={10}
+              minLength={10}
               value={phoneNumber}
               onChange={handlePhoneNumber}
-              pattern="^\d{10}$"
+              pattern="[0-9]{10}"
               title="Ingresa solo 10 dígitos en el celular."
             />
           </div>
@@ -244,7 +247,9 @@ const FormInscription = () => {
               type="text"
               id="vehiclePlate"
               name="vehiclePlate"
-              placeholder='XXX 000'
+              placeholder='XXX000'
+              maxLength={6}
+              minLength={6}
               required
             />
           </div>
@@ -257,7 +262,9 @@ const FormInscription = () => {
               type="text"
               id="codeVin"
               name="codeVin"
-              placeholder='00X00X00XX 00'
+              placeholder='00X00X'
+              maxLength={6}
+              minLength={6}
               required
             />
           </div>
