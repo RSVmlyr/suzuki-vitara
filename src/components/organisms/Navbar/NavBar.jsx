@@ -7,10 +7,6 @@ const linkNavbar = [
     path: "/",
   },
   {
-    name: "REGISTRATE",
-    path: "/",
-  },
-  {
     name: "PREMIOS",
     path: "/premios",
   },
