@@ -1,39 +1,113 @@
+@import '../../../App.scss';
+
 .sliderImages {
-    background-color: gray;
-    width: 90%;
+    // background-color: gray;
+    width: 95%;
     max-width: 132rem;
-    margin: 0 auto;
+    margin: 0 0 0 auto;
 
     .flickity {
-        &-slider {
+        &-prev-next-button {
+            top: 10%;
+            width: 30px;
+            height: 30px;
 
-            figure {
-                // margin-top: 0;
-                // margin-bottom: 0;
-                // width: 50%;
-                // margin: 0;
-                // width: 40%;
-                // margin-right: 20px;
-
-                // img {
-                //     width: 100%;
-                //     height: 100%;
-                // }
-
-                &.is-selected {
-                    // width: 80%;
-                    // margin: 0;
-                }
+            @include mq (md) {
+                top: 5%;
             }
 
+            &.previous {
+                left: auto;
+                right: 60px;
+            }
+        }
+
+        &-slider {
             img {
-                width: 75%;
-                // bottom: 0;
+                box-sizing: border-box;
+                border: 1px solid #D1D1D1;
+                transform-origin: left bottom;
+                bottom: 0;
+                transition: all 1s ease;
+                width: 60%;
+
+                @include mq (md) {
+                    width: 40%;
+                }
+
+                &:nth-child(2) {
+                    transform: translateX(110%) scale(0.8) !important;
+
+                    @include mq (md) {
+                        transform: translateX(110%) scale(0.9) !important;
+                    }
+                }
+
+                &:nth-child(3) {
+                    transform: translateX(210%) scale(0.8) !important;
+
+                    @include mq (md) {
+                        transform: translateX(210%) scale(0.9) !important;
+                    }
+                }
+
+                &:nth-child(4) {
+                    transform: translateX(310%) scale(0.8) !important;
+
+                    @include mq (md) {
+                        transform: translateX(310%) scale(0.9) !important;
+                    }
+                }
+
+                &:nth-child(5) {
+                    transform: translateX(410%) scale(0.8) !important;
+
+                    @include mq (md) {
+                        transform: translateX(410%) scale(0.9) !important;
+                    }
+                }
+
+                &:nth-child(6) {
+                    transform: translateX(510%) scale(0.8) !important;
+
+                    @include mq (md) {
+                        transform: translateX(510%) scale(0.9) !important;
+                    }
+                }
+
+                &:nth-child(7) {
+                    transform: translateX(610%) scale(0.8) !important;
+
+                    @include mq (md) {
+                        transform: translateX(610%) scale(0.9) !important;
+                    }
+                }
             
 
                 &.is-selected {
-                    // width: 60%;
-                    // transform: scale(1.2) !important;
+                    &:nth-child(2) {
+                        transform: translateX(100%) scale(1) !important;
+                    }
+
+                    &:nth-child(3) {
+                        transform: translateX(200%) scale(1) !important;
+                    }
+
+                    &:nth-child(4) {
+                        transform: translateX(300%) scale(1) !important;
+                    }
+
+                    &:nth-child(5) {
+                        transform: translateX(400%) scale(1) !important;
+                    }
+
+                    &:nth-child(6) {
+                        transform: translateX(500%) scale(1) !important;
+                    }
+
+                    &:nth-child(7) {
+                        transform: translateX(600%) scale(1) !important;
+                    }
                 }
             }
         }
