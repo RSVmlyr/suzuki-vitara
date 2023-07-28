@@ -9,7 +9,7 @@
 
   &--container {
     color: $white;
-    display: flex;
+    display: block;
     flex-direction: column;
     margin: auto;
     max-width: 90%;
@@ -28,7 +28,7 @@
 
       @include mq (md) {
         order: 0;
-        width: 50%;
+        // width: 50%;
       }
 
       .title {
@@ -47,11 +47,31 @@
         a {
           color: $white;
         }
+
+        p {
+          margin: 0;
+          word-break: break-word;
+        }
+
+        table {
+          margin: 20px auto;
+          border: 1px solid $white;
+        }
+
+        thead th {
+          font-weight: bold;
+          text-align: center;
+        }
+
+        th, td {
+          border: 1px solid $white;
+          padding: 10px;
+        }
       }
     }
 
     &__right {
-      display: flex;
+      display: none;
       justify-content: end;
       margin-top: -38px;
       order: 0;
