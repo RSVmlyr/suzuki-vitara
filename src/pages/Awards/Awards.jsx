@@ -44,7 +44,9 @@ export const Awards = () => {
           <PrizeDetail data={product}/>
         </div>
         <div className='awards--slider'>
-          <SliderImages/>
+          <div className='slider'>
+            <SliderImages/>
+          </div>
         </div>
       </div>
   )

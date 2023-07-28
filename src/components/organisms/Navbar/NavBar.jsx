@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { AnchorLink } from '../../atoms/AnchorLink/AnchorLink';
 
 const linkNavbar = [
   {
@@ -8,7 +9,8 @@ const linkNavbar = [
   },
   {
     name: "REGISTRATE",
-    path: "/",
+    path: "/hola",
+    anchor: true
   },
   {
     name: "PREMIOS",
@@ -40,11 +42,16 @@ export const NavBar = ({isMobile, setBurguer}) => {
           {linkNavbar.map(link => {
             return (
             <li className='header--nav__item' key={link.name}>
-              <NavLink to={link.path} 
-                className={({ isActive }) => isActive ? 'active' : 'navbar__menu'}
-                onClick={() => setBurguer(true)}>
-                  {link.name}
-              </NavLink>
+              {!link.anchor ? 
+                <NavLink to={link.path} 
+                  className={({ isActive }) => isActive ? 'active' : 'navbar__menu'}
+                  onClick={() => setBurguer(true)}>
+                    {link.name}
+                </NavLink>
+                :
+                <AnchorLink text={link.name} onClick={() => setBurguer(true)}/> 
+               }
+              
             </li>)
           })}
         </ul>
