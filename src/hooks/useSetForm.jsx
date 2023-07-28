@@ -47,6 +47,14 @@ const useSetForm = async (body) => {
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
         })
+      } else if (errorData.error === 'it was already used.') {
+        Swal.fire({
+          icon: 'warning',
+          title: 'VIN del vehículo!',
+          text: 'El VIN proporcionado ya existe.',
+          confirmButtonColor: '#DF013A',
+          confirmButtonText: 'Cerrar',
+        })
       }
     }
   } catch (error) {
