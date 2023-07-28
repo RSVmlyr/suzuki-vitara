@@ -13,6 +13,7 @@ const linkNavbar = [
     anchor: true
   },
   {
+
     name: "PREMIOS",
     path: "/premios",
   },

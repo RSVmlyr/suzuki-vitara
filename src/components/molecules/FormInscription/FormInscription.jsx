@@ -104,10 +104,12 @@ const FormInscription = () => {
         "email": e.target.email.value,
         "field_city": e.target.city.value,
         "field_address": e.target.address.value,
-        "field_vin": e.target.codeVin.value,
-        "car_plate": e.target.vehiclePlate.value,
+        "field_vin": e.target.codeVin.value.toUpperCase(),
+        "car_plate": e.target.vehiclePlate.value.toUpperCase(),
         "imagen": srcUploadImageFile
       }
+
+      console.log(bodyForm);
 
       const response = await useSetForm(bodyForm);
       if (response && response.serviceStatus) {

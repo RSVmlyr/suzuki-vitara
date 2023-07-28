@@ -42,6 +42,10 @@
         .description {
           font-size: 1.4rem;
         }
+        #vehiclePlate,
+        #codeVin {
+          text-transform: uppercase;
+        }
       }
     }
   }
