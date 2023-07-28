@@ -136,8 +136,8 @@ const FormInscription = () => {
   };
 
   return (
-    <div className='form--inscription'>
-      <form ref={formRef} id="form--inscription__container" className='form--inscription__container' onSubmit={handleFormSubmit}>
+    <div className='form--inscription' id="form--inscription__container">
+      <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
         <h2 className='title'>Formulario de inscripción</h2>
         <div className='form--inscription__elements'>
 

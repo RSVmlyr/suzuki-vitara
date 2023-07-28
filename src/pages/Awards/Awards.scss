@@ -2,7 +2,7 @@
 
 .awards {
     padding-top: 0.4rem;
-    padding-bottom: 6.4rem;
+    // padding-bottom: 6.4rem;
     
     @include mq (mdx) {
         // height: 10rem;
@@ -127,5 +127,11 @@
                 padding: 0.7rem 0;
             }
         }
+    }
+
+    &--slider {
+        background-color: $white;
+        padding-top: 5.0rem;
+        padding-bottom: 6.4rem;
     }
 }
