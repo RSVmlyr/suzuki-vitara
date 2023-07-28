@@ -18,9 +18,6 @@ const useSetForm = async (body) => {
         text: 'Una vez sea aprobada, recibirás una notificación vía correo electrónico para que compartas la foto con tus amigos y voten por ti.',
         confirmButtonColor: '#DF013A',
         confirmButtonText: 'Cerrar',
-        customClass: {
-          body: 'custom-swal-body',
-        }
       })
       return { data, serviceStatus: true }
     } else {

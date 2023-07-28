@@ -37,6 +37,9 @@
         @include mq (md) {
           width: 49%;
         }
+        .description {
+          font-size: 1.4rem;
+        }
       }
     }
   }

@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import React, { useRef } from 'react';
-import { useForm } from 'react-hook-form';
 import useGetDealers from '../../../hooks/useGetDealers'
-import useCities from '../../../hooks/useCities';
-
 import UploadImage from '../../atoms/UploadImage/UploadImage'
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './FormInscription.scss'
 import useSetForm from '../../../hooks/useSetForm';
+import Swal from 'sweetalert2';
 
 const FormInscription = () => {
   const { data } = useGetDealers('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/list-dealers')
@@ -17,6 +15,8 @@ const FormInscription = () => {
   const [selectedValueCity, setSelectedValueCity] = useState('');
   const [selectedDealers, setSelectedDealers] = useState([]);
   const [dataDealers, setDataDealers] = useState([])
+
+  const formInscription = document.querySelector('.form--inscription')
 
   useEffect(() => {
     if (data && Array.isArray(data)) {
@@ -31,48 +31,15 @@ const FormInscription = () => {
     setSelectedDealers(selectedDealer);
   };
 
-  const [isVerified, setIsVerified] = useState(false);
-  const formRef = useRef(null);
-
-  const formInscription = document.querySelector('.form--inscription')
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    let srcUploadImageFile
-    if (formInscription) {
-      const uploadImageFile = formInscription.querySelector('.upload--image__file')
-      srcUploadImageFile = uploadImageFile.getAttribute('src')
+  const formRef = useRef(null)
+  const captcha = useRef(null)
+  const [uploadImageKey, setUploadImageKey] = useState(Date.now());
+  const [captchaKey, setCaptchaKey] = useState(Date.now());
+  const onChangeCaptcha = () => {
+    if (captcha.current.getValue()) {
+      console.log('El usuario NO es un ROBOT.');
     }
-    const bodyForm = {
-      "field_names": e.target.name.value,
-      "field_dealers": e.target.dealer.value,
-      "field_number_id": e.target.identification.value,
-      "field_cellphone": e.target.phoneNumber.value,
-      "email": e.target.email.value,
-      "field_city": e.target.city.value,
-      "field_address": e.target.address.value,
-      "field_vin": e.target.codeVin.value,
-      "car_plate": e.target.vehiclePlate.value,
-      "imagen": srcUploadImageFile
-    }
-
-    const response = await useSetForm(bodyForm);
-    if (response) {
-      response.serviceStatus && formRef.current.reset();
-    }
-
-    // if (isVerified) {
-    //   console.log('Formulario enviado con éxito!');
-    // } else {
-    //   console.log('Por favor, verifica el captcha antes de enviar el formulario.');
-    // }
-
-  };
-
-  const handleRecaptchaChange = (value) => {
-    // El valor "value" indica si el captcha ha sido verificado correctamente.
-    setIsVerified(!!value);
-  };
+  }
 
   const handleSelectChangeCity = (event) => {
     const selectedOption = event.target.value;
@@ -95,6 +62,76 @@ const FormInscription = () => {
 
   };
 
+  const [name, setName] = useState('');
+  const handleNameChange = (e) => {
+    const filteredName = e.target.value.replace(/\d/g, '');
+    setName(filteredName);
+  };
+
+  const [identification, setIdentification] = useState('');
+  const handleIdentificationChange = (e) => {
+    const filteredIdentification = e.target.value.replace(/\D/g, '');
+    setIdentification(filteredIdentification);
+  };
+
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const handlePhoneNumber = (e) => {
+    const filteredPhoneNumber = e.target.value.replace(/\D/g, '');
+    setPhoneNumber(filteredPhoneNumber);
+  };
+
+  const [email, setEmail] = useState('');
+  const handleEmailChange = (e) => {
+    const enteredEmail = e.target.value;
+    setEmail(enteredEmail);
+  };
+  
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (captcha.current && captcha.current.getValue()) {
+      console.log('El usuario NO es un ROBOT.');
+      let srcUploadImageFile
+      if (formInscription) {
+        const uploadImageFile = formInscription.querySelector('.upload--image__file')
+        srcUploadImageFile = uploadImageFile.getAttribute('src')
+      }
+      const bodyForm = {
+        "field_names": e.target.name.value,
+        "field_dealers": e.target.dealer.value,
+        "field_number_id": e.target.identification.value,
+        "field_cellphone": e.target.phoneNumber.value,
+        "email": e.target.email.value,
+        "field_city": e.target.city.value,
+        "field_address": e.target.address.value,
+        "field_vin": e.target.codeVin.value,
+        "car_plate": e.target.vehiclePlate.value,
+        "imagen": srcUploadImageFile
+      }
+
+      const response = await useSetForm(bodyForm);
+      if (response && response.serviceStatus) {
+        setName('');
+        setIdentification('');
+        setPhoneNumber('');
+        setEmail('');
+        setSelectedValueCity('');
+        setDataDealers([]);
+        captcha.current = ''
+        response.serviceStatus && formRef.current.reset();
+      }
+      setUploadImageKey(Date.now());
+      setCaptchaKey(Date.now());
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: 'reCAPTCHA!',
+        text: 'Acepta el captcha para enviar el formulario.',
+        confirmButtonColor: '#DF013A',
+        confirmButtonText: 'Cerrar',
+      })
+    }
+  };
+
   return (
     <div className='form--inscription'>
       <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
@@ -111,6 +148,10 @@ const FormInscription = () => {
               name="name"
               placeholder="Nombre Completo"
               required
+              value={name}
+              onChange={handleNameChange}
+              pattern="^[^\d]+$"
+              title="El nombre no debe contener números."
             />
           </div>
 
@@ -124,6 +165,10 @@ const FormInscription = () => {
               name="identification"
               placeholder="0000000000"
               required
+              value={identification}
+              onChange={handleIdentificationChange}
+              pattern="^\d+$"
+              title="Ingresa solo números en la cédula."
             />
           </div>
 
@@ -137,6 +182,10 @@ const FormInscription = () => {
               name="phoneNumber"
               placeholder='000 000 0000'
               required
+              value={phoneNumber}
+              onChange={handlePhoneNumber}
+              pattern="^\d{10}$"
+              title="Ingresa solo 10 dígitos en el celular."
             />
           </div>
 
@@ -150,6 +199,10 @@ const FormInscription = () => {
               name="email"
               placeholder='ejemplo@dominio.com'
               required
+              value={email}
+              onChange={handleEmailChange}
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              title="Ingresa un correo electrónico válido."
             />
           </div>
 
@@ -198,7 +251,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="codeVin">
-              Código VIN del vehículo:
+              Últimos 6 dígitos del VIN del vehículo:
             </label>
             <input
               type="text"
@@ -233,7 +286,7 @@ const FormInscription = () => {
             <label htmlFor="placaVehiculo">
               Subir fotografía:
             </label>
-            <UploadImage />
+            <UploadImage key={uploadImageKey}/>
           </div>
 
         </div>
@@ -252,8 +305,11 @@ const FormInscription = () => {
 
         <div className='form--inscription__captcha'>
           <ReCAPTCHA
-            sitekey="TU_CLAVE_DEL_SITIO"
-            onChange={handleRecaptchaChange}
+            ref={captcha}
+            sitekey="6LeGwWEnAAAAAJOkAEBu5t3fs4rd0ATWBGgHTlDJ"
+            onChange={onChangeCaptcha}
+            key={captchaKey}
+            required
           />
         </div>
 
