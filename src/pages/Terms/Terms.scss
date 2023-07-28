@@ -46,6 +46,7 @@
 
         a {
           color: $white;
+          word-break: break-word;
         }
 
         p {
@@ -54,8 +55,13 @@
         }
 
         table {
-          margin: 20px auto;
           border: 1px solid $white;
+          font-size: 12px;
+          margin: 20px auto;
+
+          @include mq (md) {
+            font-size: 16px;
+          }
         }
 
         thead th {
