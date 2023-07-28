@@ -34,21 +34,25 @@ const Terms = () => {
               <p><b>Artículo 4. Inventario disponible a nivel nacional.</b> 670 unidades disponibles a nivel nacional con la siguiente cantidad por referencia:</p>
               <table>
                 <thead>
-                  <td>Referencia</td>
-                  <td>Unidades disponibles para la promoción</td>
+                  <tr>
+                    <th>Referencia</th>
+                    <th>Unidades disponibles para la promoción</th>
+                  </tr>
                 </thead>
-                <tr>
-                  <td>VITARA 4x2</td>
-                  <td>600</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP GL+</td>
-                  <td>40</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP GLX FS</td>
-                  <td>30</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>VITARA 4x2</td>
+                    <td>600</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP GL+</td>
+                    <td>40</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP GLX FS</td>
+                    <td>30</td>
+                  </tr>
+                </tbody>
               </table>
               <br/><br/>
               <p><b>Artículo 5. Accesorios sin costo adicional:</b> Accesorios sin costo adicional aplican para Suzuki Vitara modelo 2023 y 2024. Aplica para vehículos facturados del 1 de agosto al 30 de septiembre de 2023.</p>
@@ -69,40 +73,44 @@ const Terms = () => {
               <p><b>Suzuki Vitara modelo 2023:</b></p>
               <table>
                 <thead>
-                  <td>Vehículo</td>
-                  <td>Precio de venta sugerido al público (PVSP) por unidad</td>
-                  <td>Precio de venta sugerido al público (PVSP) promocional por unidad*</td>
+                  <tr>
+                    <th>Vehículo</th>
+                    <th>Precio de venta sugerido al público (PVSP) por unidad</th>
+                    <th>Precio de venta sugerido al público (PVSP) promocional por unidad*</th>
+                  </tr>
                 </thead>
-                <tr>
-                  <td>VITARA 4x2 MT GL+</td>
-                  <td>$106.720.000</td>
-                  <td>$ 94.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA 4x2 AT GL+</td>
-                  <td>$110.720.000</td>
-                  <td>$ 98.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP MT GL+</td>
-                  <td>$114.720.000</td>
-                  <td>$ 102.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP AT GL+</td>
-                  <td>$118.220.000</td>
-                  <td>$ 106.220.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP MT GLX FS</td>
-                  <td>$121.720.000</td>
-                  <td>$ 109.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP AT GLX FS</td>
-                  <td>$127.220.000</td>
-                  <td>$ 115.220.000</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>VITARA 4x2 MT GL+</td>
+                    <td>$106.720.000</td>
+                    <td>$ 94.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA 4x2 AT GL+</td>
+                    <td>$110.720.000</td>
+                    <td>$ 98.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP MT GL+</td>
+                    <td>$114.720.000</td>
+                    <td>$ 102.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP AT GL+</td>
+                    <td>$118.220.000</td>
+                    <td>$ 106.220.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP MT GLX FS</td>
+                    <td>$121.720.000</td>
+                    <td>$ 109.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP AT GLX FS</td>
+                    <td>$127.220.000</td>
+                    <td>$ 115.220.000</td>
+                  </tr>
+                </tbody>
               </table>
               <br/>
               <p>*Precio de venta sugerido al público (PVSP) promocional por unidad incluye bono de descuento de $12.000.000. Descuento aplica para vehículos financiados a través de: Banco de Occidente, BBVA, Banco de Bogotá y Finandina, si el trámite de la financiación es realizado a través del punto de venta o concesionario autorizado. Para vehículos financiados con otras entidades financieras aplica descuento de $10.000.000.</p>
@@ -110,40 +118,44 @@ const Terms = () => {
               <p><b>Suzuki Vitara modelo 2024:</b></p>
               <table>
                 <thead>
-                  <td>Vehículo</td>
-                  <td>Precio de venta sugerido al público (PVSP) por unidad</td>
-                  <td>Precio de venta sugerido al público (PVSP) promocional por unidad*</td>
+                  <tr>
+                    <th>Vehículo</th>
+                    <th>Precio de venta sugerido al público (PVSP) por unidad</th>
+                    <th>Precio de venta sugerido al público (PVSP) promocional por unidad*</th>
+                  </tr>
                 </thead>
-                <tr>
-                  <td>VITARA 4x2 MT GL+</td>
-                  <td>$106.720.000</td>
-                  <td>$ 96.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA 4x2 AT GL+</td>
-                  <td>$110.720.000</td>
-                  <td>$ 100.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP MT GL+</td>
-                  <td>$114.720.000</td>
-                  <td>$ 104.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP AT GL+</td>
-                  <td>$118.220.000</td>
-                  <td>$ 108.220.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP MT GLX FS</td>
-                  <td>$121.720.000</td>
-                  <td>$ 111.720.000</td>
-                </tr>
-                <tr>
-                  <td>VITARA ALL-GRIP AT GLX FS</td>
-                  <td>$127.220.000</td>
-                  <td>$ 117.220.000</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>VITARA 4x2 MT GL+</td>
+                    <td>$106.720.000</td>
+                    <td>$ 96.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA 4x2 AT GL+</td>
+                    <td>$110.720.000</td>
+                    <td>$ 100.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP MT GL+</td>
+                    <td>$114.720.000</td>
+                    <td>$ 104.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP AT GL+</td>
+                    <td>$118.220.000</td>
+                    <td>$ 108.220.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP MT GLX FS</td>
+                    <td>$121.720.000</td>
+                    <td>$ 111.720.000</td>
+                  </tr>
+                  <tr>
+                    <td>VITARA ALL-GRIP AT GLX FS</td>
+                    <td>$127.220.000</td>
+                    <td>$ 117.220.000</td>
+                  </tr>
+                </tbody>
               </table>
               <br/>
               <p>*Precio de venta sugerido al público (PVSP) promocional por unidad incluye bono de descuento de $10.000.000. Descuento aplica para vehículos financiados a través de: Banco de Occidente, BBVA, Banco de Bogotá y Finandina, si el trámite de la financiación es realizado a través del punto de venta o concesionario autorizado. Para vehículos financiados con otras entidades financieras aplica descuento de $8.000.000.</p>
