@@ -7,17 +7,21 @@ const linkNavbar = [
     path: "/",
   },
   {
+    name: "REGISTRATE",
+    path: "/",
+  },
+  {
     name: "PREMIOS",
     path: "/premios",
   },
-  {
-    name: "GALERÍA",
-    path: "/galeria",
-  },
-  {
-    name: "RANKING",
-    path: "/ranking",
-  },
+  // {
+  //   name: "GALERÍA",
+  //   path: "/galeria",
+  // },
+  // {
+  //   name: "RANKING",
+  //   path: "/ranking",
+  // },
   {
     name: "FAQS",
     path: "/faqs",
