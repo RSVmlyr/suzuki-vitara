@@ -26,23 +26,23 @@ const useSetForm = async (body) => {
       if (errorData.error === 'User with the provided email already exists.') {
         Swal.fire({
           icon: 'warning',
-          title: 'Correo electrónico!',
-          text: 'El usuario con el correo electrónico proporcionado ya existe.',
+          title: 'Tú Correo electrónico ya se encuentra registrado',
+          // text: '',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
         })
       } else if (errorData.error === 'Number id is already used by another user.') {
         Swal.fire({
           icon: 'warning',
-          title: 'Cédula!',
-          text: 'El usuario con la cédula proporcionada ya existe.',
+          title: 'Tú CÉDULA ya se encuentra registrada',
+          // text: '',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
         })
       } else if (errorData.error === 'User with the provided vin or car plate, does not exist.') {
         Swal.fire({
           icon: 'warning',
-          title: 'Tu código VIN no ha sido activado!',
+          title: 'Tu código VIN no ha sido activado',
           text: 'Este podrá ser activado hasta 3 días hábiles después de la entrega del vehículo.',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
@@ -50,8 +50,8 @@ const useSetForm = async (body) => {
       } else if (errorData.error === 'it was already used.') {
         Swal.fire({
           icon: 'warning',
-          title: 'VIN del vehículo!',
-          text: 'El VIN proporcionado ya existe.',
+          title: 'Tu código VIN ya está registrado',
+          text: 'Para registrarte debes usar un nuevo código VIN.',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
         })
