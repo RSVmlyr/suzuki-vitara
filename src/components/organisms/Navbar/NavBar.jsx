@@ -9,7 +9,7 @@ const linkNavbar = [
   },
   {
     name: "REGISTRATE",
-    path: "/hola",
+    path: "/#form--inscription__container",
     anchor: true
   },
   {
@@ -37,6 +37,10 @@ const linkNavbar = [
 
 
 export const NavBar = ({isMobile, setBurguer}) => {
+  const scrollWithOffset = () => {
+    console.log(window.scrollTo({top: 0}));
+    setBurguer(true);
+  }
   return (
     <nav  className={isMobile ? 'dissable': 'header--nav'}>
         <ul className='header--nav__list'>
@@ -46,11 +50,13 @@ export const NavBar = ({isMobile, setBurguer}) => {
               {!link.anchor ? 
                 <NavLink to={link.path} 
                   className={({ isActive }) => isActive ? 'active' : 'navbar__menu'}
-                  onClick={() => setBurguer(true)}>
+                  onClick={scrollWithOffset}>
                     {link.name}
                 </NavLink>
                 :
-                <AnchorLink text={link.name} onClick={() => setBurguer(true)}/> 
+                <AnchorLink text={link.name} 
+                  className={({ isActive }) => isActive ? 'active' : 'navbar__menu'}
+                  path={link.path} setBurguer={scrollWithOffset}/> 
                }
               
             </li>)

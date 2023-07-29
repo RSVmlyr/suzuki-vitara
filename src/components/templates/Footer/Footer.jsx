@@ -9,55 +9,94 @@ import { SocialMedia } from '../../organisms/SocialMedia/SocialMedia';
 
 const socialMedias = [
   {
-    title: "facebook",
+    title: 'facebook',
     image: facebookIcon,    
-    url: "https://www.facebook.com/SuzukiAutosColombia/"
+    url: 'https://www.facebook.com/SuzukiAutosColombia/'
   },
   {
-    title: "instagram",
+    title: 'instagram',
     image: instagramIcon,    
-    url: "https://www.instagram.com/suzukiautoscol/"
+    url: 'https://www.instagram.com/suzukiautoscol/'
   },
   {
-    title: "twitter",
+    title: 'twitter',
     image: twitterIcon,    
-    url: "https://twitter.com/SUZUKIAUTOSCO"
+    url: 'https://twitter.com/SUZUKIAUTOSCO'
   },
   {
-    title: "youtube",
+    title: 'youtube',
     image: youtubeIcon,    
-    url: "https://www.youtube.com/suzukiautos"
+    url: 'https://www.youtube.com/suzukiautos'
   },
 
 ]
 
 const contentFooter = [
   {
-    "title": "Nuestros Vehículos",
-    "links": [
-      "Listos para la ciudad",
-      "Listos para la aventura",
-      "Comprometidos con el medio ambiente"
+    'title': 'Nuestros Vehículos',
+    'links': [
+      {
+        name:'Listos para la ciudad',
+        url: 'hola'
+      },
+      {
+        name:'Listos para la aventura',
+        url: 'hola'
+      },
+      {
+        name:'Comprometidos con el medio ambiente',
+        url: 'hola'
+        
+      }
     ]
   },
   {
-    "title": "Postventa",
-    "links": [
-      "Talleres Autorizados",
-      "Campaña de seguridad",
-      "Tecnología Suzuki"
+    'title': 'Postventa',
+    'links': [
+      {
+        name: 'Talleres Autorizados',
+        url: 'https://www.suzukiautos.com.co/talleres-autorizados',
+      },
+      {
+        name: 'Campaña de seguridad',
+        url: 'https://www.suzukiautos.com.co/info/campanas-de-seguridad',
+      },
+      {
+        name: 'Tecnología Suzuki',
+        url: 'https://www.suzukiautos.com.co/info/tecnologia-suzuki',
+      },
     ]
   },
   {
-    "title": "Sobre Derco",
-    "links": [
-      "Contáctanos",
-      "Peticiones, quejas y reclamos"
+    'title': 'Sobre Derco',
+    'links': [
+      {
+        name: 'Contáctanos',
+        url: 'https://www.suzukiautos.com.co/info/contacto',
+      },
+      {
+        name: 'Peticiones, quejas y reclamos',
+        url: 'https://www.suzukiautos.com.co/info/peticiones-quejas-y-reclamos',
+      },
     ]
   },
 
 ]
 
+const contentCopyright = [
+  {
+    name: 'Términos y Condiciones',
+    url: 'https://www.suzukiautos.com.co/info/terminos-y-condiciones'
+  },
+  {
+    name: 'Política de protección de datos',
+    url: 'https://www.suzukiautos.com.co/info/politica-de-proteccion-de-datos'
+  },
+  {
+    name: 'Política de Cookies',
+    url: 'https://www.suzukiautos.com.co/info/Politica-de-cookies'
+  }
+]
 
 export const Footer = () => {
 
@@ -81,8 +120,8 @@ export const Footer = () => {
                 <h4 className='bottom--content__title'>{content.title}</h4>
                 <ul className='bottom--content__list'>
                   {content.links.map(link => {
-                    return <li className='bottom--content__items' key={link}>
-                      <a href={"hol"}>{link}</a>
+                    return <li className='bottom--content__items' key={link.name}>
+                      <a href={link.url}>{link.name}</a>
                     </li>
                   })}
                 </ul>
@@ -95,9 +134,16 @@ export const Footer = () => {
           <div className='copyright'>
           <ul className='copyright__paragraph'>
             <li className='copyright__items'>
-              <a href="">Términos y Condiciones <span>|</span></a>
-              <a href="">Política de protección de datos <span>|</span></a>
-              <a href="">Política de Cookies</a>
+              {contentCopyright.map((content, i) => {
+                return (
+                  <a href={content.url} key={content.name}>
+                    {content.name} {i != contentCopyright.length && <span>|</span>}</a>
+
+                )
+              })}
+              {/* <a href=''>Términos y Condiciones <span>|</span></a>
+              <a href=''>Política de protección de datos <span>|</span></a>
+              <a href=''>Política de Cookies</a> */}
             </li>
           </ul>
           <div className='footer--copyright__copyright'>
