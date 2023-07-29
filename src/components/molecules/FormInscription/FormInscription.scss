@@ -27,18 +27,53 @@
     display: flex;
     flex-direction: column;
     gap: 2%;
+
     @include mq (md) {
       flex-wrap: wrap;
       flex-direction: row;
     }
+
     .form--inscription {
       &__item  {
         display: flex;
-          flex-direction: column;
+        flex-direction: column;
         margin: 0 0 4rem;
         @include mq (md) {
           width: 49%;
         }
+
+        &:nth-child(7) {
+          order: 3;
+
+          @include mq (md) {
+            order: 0;
+          }
+        }
+
+        &:nth-child(8) {
+          order: 2;
+
+          @include mq (md) {
+            order: 0;
+          }
+        }
+
+        &:nth-child(9) {
+          order: 1;
+
+          @include mq (md) {
+            order: 0;
+          }
+        }
+
+        &:nth-child(10) {
+          order: 4;
+
+          @include mq (md) {
+            order: 0;
+          }
+        }
+
         .description {
           font-size: 1.4rem;
         }
@@ -51,7 +86,7 @@
   }
   &__terms {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 7%;
     margin: 0 0 4rem;
     @include mq (md) {
@@ -61,6 +96,11 @@
       font-size: 1.3rem;
       margin: 0;
       padding: 0;
+    }
+    input {
+      margin-top: 2px;
+      height: 2.0rem;
+      width: 2.0rem;
     }
   }
   &__captcha {
