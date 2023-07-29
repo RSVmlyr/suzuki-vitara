@@ -12,6 +12,9 @@
     padding: 0 4%;
   }
   @include maxArea();
+  @include mq (xlg) {
+    margin: 7rem auto;
+  }
   &--top {
     .title {
       @include title();
