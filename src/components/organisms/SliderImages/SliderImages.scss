@@ -15,12 +15,23 @@
             top: 10%;
             width: 30px;
             height: 30px;
+            // background-color: gray;
+            background-image: url('/src/assets/images/icon/arrow_forward.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            
 
             @include mq (md) {
                 top: 5%;
             }
 
+            svg {
+                display: none;
+            }
+
             &.previous {
+                background-image: url('/src/assets/images/icon/arrow_back.svg');
                 left: auto;
                 right: 60px;
             }
