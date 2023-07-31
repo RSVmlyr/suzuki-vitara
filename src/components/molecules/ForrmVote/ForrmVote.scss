@@ -1,0 +1,36 @@
+@import '../../../App.scss';
+
+.form--vote {
+  label {
+    color: $white;
+    font-size: 1.6rem;
+  }
+  .title {
+    color: $white;
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 4rem 0 2rem;
+  }
+  &__elements {
+    display: flex;
+    flex-direction: column;
+    @include mq (md) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 5%;
+    }
+    .form--vote {
+      &__item  {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 3rem;
+        @include mq (md) {
+          width: 47%;
+        }
+      }
+    }
+  }
+  &__captcha {
+    margin: 0 0 3rem;
+  }
+}

@@ -3,7 +3,9 @@
 .form--inscription {
   background-color: $white;
   padding: 6rem 0;
-
+  label {
+    color: $blueDark;
+  }
   &__container {
     margin: auto;
     width: 100%;

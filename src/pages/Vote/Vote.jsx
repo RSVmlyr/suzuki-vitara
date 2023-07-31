@@ -22,7 +22,7 @@ export const Vote = () => {
         <div className='vote--right'>
            <div className='vote--count'>
              <span className='vote--count__number'>10.1k</span>
-             <span className='vote--count__namer'>Nombre here</span>
+             <span className='vote--count__name'>Nombre here</span>
            </div>
           <FormVote />
         </div>

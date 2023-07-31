@@ -1,1 +1,62 @@
 @import '../../App.scss';
+
+.vote {
+  &--container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin: auto;
+    padding: 2rem 0 10rem;
+    max-width: 90%;
+    @include mq (md) {
+      flex-direction: row;
+      gap: 2.5%;
+      padding: 5rem 0 10rem;
+    }
+    @include maxArea();
+    .vote {
+      &--left {
+        @include mq (md) {
+          width: 55%;
+        }
+      }
+      &--image {
+        margin: 0;
+        padding: 0;
+      }
+      &--image__file {
+        border-radius: .7rem;
+        width: 100%;
+      }
+      &--right {
+        @include mq (md) {
+          width: 45%;
+        }
+      }
+      &--count {
+        color: $white;
+        display: flex;
+        gap: .5rem;
+        flex-direction: column;
+        position: relative;
+      }
+      &--count__number {
+        font-size: 1.4rem;
+        position: relative;
+        padding: 0 2.5rem 0 0;
+        width: max-content;
+        &::after {
+          @include pseudo();
+          background-image: url('../../assets/images/icon/icon-like.svg');
+          height: 1.6rem;
+          width: 1.6rem;
+          top: 0;
+          right: 0;
+        }
+      }
+      &--count__name {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
