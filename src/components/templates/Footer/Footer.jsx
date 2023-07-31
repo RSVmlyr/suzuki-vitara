@@ -33,51 +33,54 @@ const socialMedias = [
 
 const contentFooter = [
   {
-    'title': 'Nuestros Vehículos',
+    'title': 'Contáctenos',
     'links': [
       {
-        name:'Listos para la ciudad',
-        url: 'hola'
+        name:'Servicioalcliente@derco.com.co',
+        url: 'mailto:Servicioalcliente@derco.com.co'
       },
       {
-        name:'Listos para la aventura',
-        url: 'hola'
-      },
-      {
-        name:'Comprometidos con el medio ambiente',
-        url: 'hola'
-        
+        name:'Teléfono: (1) 676 39 02',
+        url: 'tel:(1) 676 39 02'
       }
     ]
   },
   {
-    'title': 'Postventa',
+    'title': 'Líneas de Atención al Cliente',
     'links': [
       {
-        name: 'Talleres Autorizados',
-        url: 'https://www.suzukiautos.com.co/talleres-autorizados',
+        name: 'Línea Fija: 60 1 3715326',
+        url: 'tel:6013715326',
       },
       {
-        name: 'Campaña de seguridad',
-        url: 'https://www.suzukiautos.com.co/info/campanas-de-seguridad',
+        name: 'Línea Celular: 3503189888',
+        url: 'tel:573503189888',
       },
       {
-        name: 'Tecnología Suzuki',
-        url: 'https://www.suzukiautos.com.co/info/tecnologia-suzuki',
+        name: 'Línea gratuita Nacional: 018000112898',
+        url: 'tel:018000112898',
       },
+      {
+        name: 'WhatsApp Derco: 3102137176',
+        url: 'tel:573102137176',
+      }
     ]
   },
   {
-    'title': 'Sobre Derco',
+    'title': 'Enlaces de Intéres',
     'links': [
       {
-        name: 'Contáctanos',
-        url: 'https://www.suzukiautos.com.co/info/contacto',
+        name: 'Términos y Condiciones',
+        url: 'https://www.suzukiautos.com.co/info/terminos-y-condiciones',
       },
       {
-        name: 'Peticiones, quejas y reclamos',
-        url: 'https://www.suzukiautos.com.co/info/peticiones-quejas-y-reclamos',
+        name: 'Política de protección de datos',
+        url: 'https://www.suzukiautos.com.co/info/politica-de-proteccion-de-datos',
       },
+      {
+        name: 'Ver Política de Cookies',
+        url: 'https://www.suzukiautos.com.co/info/Politica-de-cookies',
+      }
     ]
   },
 
@@ -121,7 +124,7 @@ export const Footer = () => {
                 <ul className='bottom--content__list'>
                   {content.links.map(link => {
                     return <li className='bottom--content__items' key={link.name}>
-                      <a href={link.url}>{link.name}</a>
+                      <a href={link.url} target='_blank'>{link.name}</a>
                     </li>
                   })}
                 </ul>

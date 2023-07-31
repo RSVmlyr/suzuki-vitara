@@ -1,7 +1,13 @@
 @import '../../App.scss';
 
 .page-notfound {
-  
+  margin-top: -150px;
+  padding: 20px;
+
+  @include mq (md) {
+    margin-top: -100px;
+  }
+
   .img-404 {
     display: block;
     height: auto;
