@@ -311,6 +311,8 @@ const Terms = () => {
               <p>Por lo anterior, EL FIGURANTE ha sido informado sobre las implicaciones de esta autorización de conformidad con la Ley 1581 de 2012 y los decretos reglamentarios y demás normas que la modifiquen, adicionen o sustituyan, los cuales declaró conocer, así como la posibilidad y derecho de solicitar en cualquier momento el retiro, rectificación, actualización o modificación de esta información, atendiendo el procedimiento y requisitos dispuestos por la compañía. EL FIGURANTE conoce que las compañías actuarán como “Responsables del Tratamiento de datos personales de los titulares”, en consecuencia, podrán conjunta o separadamente recolectar, usar y tratar los datos suministrados conforme a la política de tratamiento disponible en <Link to="https://derco.com.co/" target="_blank" rel="noopener noreferrer">https://derco.com.co/</Link> y en la ley.</p>
               <br/>
               <p>EL FIGURANTE conoce que los anteriores derechos pueden ser ejercidos a través de los canales gratuitos dispuestos por las Compañías y observando la Política de Tratamiento de Datos Personales establecida en los canales institucionales, para lo cual se ha dispuesto el correo electrónico <Link to="mailto:servicioalcliente@derco.com.co" target="_blank" rel="noopener noreferrer">servicioalcliente@derco.com.co</Link>.</p>
+              <br/><br/>
+              <p>FIN</p>
               <br/><br/><br/>
             </div>
           </div>
