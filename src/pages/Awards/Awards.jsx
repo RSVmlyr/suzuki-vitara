@@ -45,6 +45,7 @@ export const Awards = () => {
         </div>
         <div className='awards--slider'>
           <div className='slider'>
+            <h2 className='awards--slider__title'>Galería</h2>
             <SliderImages/>
           </div>
         </div>
