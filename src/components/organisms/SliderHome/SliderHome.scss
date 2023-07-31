@@ -8,4 +8,17 @@
     width: 90%;
     @include maxArea;
   }
+
+  .info--legal {
+    display: block;
+    margin: 4.0rem auto 0;
+    width: 90%;
+    
+    @include maxArea;
+
+    p, a {
+      color: $white;
+      font-size: 1.3rem;
+    }
+  }
 }

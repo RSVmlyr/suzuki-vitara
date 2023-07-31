@@ -135,6 +135,20 @@ const FormInscription = () => {
     }
   };
 
+  const handleKeyPlaca = (event) => {
+    const allowedChars = /^[a-zA-Z0-9\b]+$/;
+    if (!event.key.match(allowedChars)) {
+      event.preventDefault();
+    }
+  };
+
+  const handleKeyVin = (event) => {
+    const allowedChars = /^[0-9\b]+$/;
+    if (!event.key.match(allowedChars)) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div className='form--inscription' id="form--inscription__container">
       <form ref={formRef} className='form--inscription__container' onSubmit={handleFormSubmit}>
@@ -249,9 +263,11 @@ const FormInscription = () => {
               type="text"
               id="vehiclePlate"
               name="vehiclePlate"
-              placeholder='XXX000'
+              placeholder='ABC123'
               maxLength={6}
               minLength={6}
+              onKeyPress={handleKeyPlaca}
+              pattern="^[a-zA-Z]{3}\d{3}$"
               required
             />
           </div>
@@ -264,9 +280,11 @@ const FormInscription = () => {
               type="text"
               id="codeVin"
               name="codeVin"
-              placeholder='00X00X'
+              placeholder='000000'
               maxLength={6}
               minLength={6}
+              onKeyPress={handleKeyVin}
+              pattern="^[0-9]{6}$"
               required
             />
           </div>
@@ -308,8 +326,7 @@ const FormInscription = () => {
             required
           />
           <label htmlFor="terms">
-          Imágenes de referencia. Válido del 1 de agosto al 30 de septiembre de 2023, o hasta agotar existencias, lo que primero ocurra. (1) Nuevo equipamiento incluye: estribos laterales, molduras, barras de techo y bombillos led. (2) Descuento aplica sobre precio de venta de lista sugerido al público (PVSP) para Suzuki Vitara modelo 2023 y 2024. Aplica para vehículos facturados a cliente final del 1 de agosto al 30 de septiembre y entregados a cliente final hasta el 31 de octubre de 2023 en la red de concesionarios autorizada a nivel nacional. Aplica para vehículos financiados a través de Banco de Occidente, BBVA, Banco de Bogotá y Finandina, si el trámite de la financiación es realizado a través del punto de venta o concesionario autorizado. Para vehículos financiados con otras entidades financieras aplica descuento de $8.000.000. (3) Consulta la dinámica para participar en el concurso de las 15 patinetas eléctricas marca Minca y la totalidad de los términos y condiciones de la promoción en <Link to="https://estrenavitara.com.co/">www.estrenavitara.com.co</Link>  Tras el cierre de publicación pueden haberse producido cambios en el equipamiento, precio y /o diseño que sugerimos verificar en la red de concesionarios autorizada al momento de realizar el pedido y/o firmar contrato de compraventa. Esta oferta no es acumulable, canjeable ni transferible con otras ofertas y/o promociones de la marca. Cualquier irregularidad por favor no dude en reportarla haciendo uso de los mecanismos institucionales de peticiones quejas y reclamos de la red de concesionarios autorizada y/o de Derco Colombia S.A.S. Mayor información en <Link to="https://www.suzukiautos.com.co/" target="_blank" rel="noopener noreferrer">www.suzukiautos.com.co</Link>
-            {/* Confirmo que he leído la política de protección de datos personales, acepto recibir información con fines de seguimiento a mi cotización, autorizo el tratamiento de mis datos personales conforme los siguientes <Link to="/condiciones" target="_blank" rel="noopener noreferrer">términos y condiciones</Link>. */}
+            Confirmo que he leído la política de protección de datos personales, acepto recibir información con fines de seguimiento a mi cotización, autorizo el tratamiento de mis datos personales conforme los siguientes <Link to="/condiciones" target="_blank" rel="noopener noreferrer">términos y condiciones</Link>.
           </label>
         </div>
 
