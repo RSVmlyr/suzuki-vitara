@@ -67,6 +67,15 @@
                     @include mq (xs) {
                         right: 2%;
                     }
+
+                    @include mq (sm) {
+                        font-size: 3.0rem;
+                        text-shadow: 0 0 0.8rem $black;
+                    }
+
+                    @include mq (md) {
+                        font-size: 3.5rem;
+                    }
                 }
                 
             }

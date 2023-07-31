@@ -27,7 +27,7 @@ const Participate = () => {
               <span className='number'>2</span>
             </div>
             <div className='card--number__right'>
-              <h4 className='subtitle'>Registrate</h4>
+              <h4 className='subtitle'>Regístrate</h4>
               <p className='description'>Una vez te entreguen el vehículo, regístrate con tus datos y los del vehículo.</p>
             </div>
           </div>

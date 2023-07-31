@@ -26,7 +26,7 @@ const useSetForm = async (body) => {
       if (errorData.error === 'User with the provided email already exists.') {
         Swal.fire({
           icon: 'warning',
-          title: 'Tú Correo electrónico ya se encuentra registrado',
+          title: 'Tu Correo Electrónico ya se encuentra registrado',
           // text: '',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
@@ -34,7 +34,7 @@ const useSetForm = async (body) => {
       } else if (errorData.error === 'Number id is already used by another user.') {
         Swal.fire({
           icon: 'warning',
-          title: 'Tú CÉDULA ya se encuentra registrada',
+          title: 'Tu Cédula ya se encuentra registrada',
           // text: '',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',

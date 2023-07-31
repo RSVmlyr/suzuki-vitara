@@ -8,7 +8,7 @@ const linkNavbar = [
     path: "/",
   },
   {
-    name: "REGISTRATE",
+    name: "REGÍSTRATE",
     path: "/#form--inscription__container",
     anchor: true
   },
