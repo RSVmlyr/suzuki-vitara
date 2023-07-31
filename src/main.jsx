@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import Home from './pages/Home/Home.jsx'
 import Terms  from './pages/Terms/Terms.jsx'
 import PageNotFound from './pages/404/404.jsx'
+import Vote from './pages/Vote/Vote.jsx'
 
 import './App.scss'
 import './normalize.css'
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/condiciones",
     element: <Terms />,
+  },
+  {
+    path: "/votar",
+    element: <Vote />,
   }
 ]);
 

@@ -6,6 +6,10 @@
     max-width: 132rem;
     margin: 0 0 0 auto;
 
+    @include mq (md) {
+        margin: 0 auto;
+    }
+
     .flickity {
         &-prev-next-button {
             top: 10%;

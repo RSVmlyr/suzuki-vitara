@@ -7,6 +7,7 @@ import { Galery } from '../pages/Galery/Galery'
 import { Awards } from '../pages/Awards/Awards'
 import { Ranking } from '../pages/Ranking/Ranking'
 import { Faqs } from '../pages/Faqs/Faqs'
+import { Vote } from '../pages/Vote/Vote'
 import PageNotFound from '../pages/404/404'
 
 
@@ -20,6 +21,7 @@ export const AppRouter = () => {
             <Route path='/ranking' element={<Ranking/>}/>
             <Route path='/faqs' element={<Faqs/>}/>
             <Route path='/condiciones' element={<Terms/>} />
+            <Route path='/votar' element={<Vote/>} />
             <Route path="*" element={<PageNotFound />} />
         </Route>
     </Routes>
