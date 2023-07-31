@@ -2,6 +2,8 @@ import React from 'react'
 import FormVote from '../../components/molecules/ForrmVote/ForrmVote'
 import imgVote from '../../assets/images/bg/img-vote.jpeg'
 
+import './Vote.scss'
+
 export const Vote = () => {
   return (
     <div className='vote'>
