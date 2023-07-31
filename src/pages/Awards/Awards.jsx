@@ -23,7 +23,7 @@ const product = {
     {
       name:'Peso máximo', detail:'100 kg'},
     {
-      name:'Bateria', detail:'Litio 48V/15AH'},
+      name:'Batería', detail:'Litio 48V/15AH'},
     {
       name:'Autonomía', detail:'35 / 45 Km'},
     {
