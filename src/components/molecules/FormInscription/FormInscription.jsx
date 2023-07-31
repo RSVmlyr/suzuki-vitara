@@ -50,7 +50,7 @@ const FormInscription = () => {
     ? data.filter((item) => item.city.toLowerCase() === selectedOption)
     : [];
     setDataDealers(filteredData)
-    // console.log(dataDealers);
+    // console.log('Filtered', filteredData);
     if (formInscription) {
       dealerSelect.removeAttribute('disabled');
       if (selectedOption === '') {
@@ -284,7 +284,7 @@ const FormInscription = () => {
             >
               <option value="">Seleccionar</option>
               {dataDealers.map((item) => (
-                <option key={item.id} value={item.name}>
+                <option key={item.id} value={item.id}>
                   {item.name}
                 </option>
               ))}
