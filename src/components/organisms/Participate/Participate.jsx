@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 
-import imgParticipate from '../../../assets/images/bg/participate.png'
+import imgParticipate from '../../../assets/images/bg/participar-vitara.jpg'
 import './Participate.scss'
 
 const Participate = () => {
