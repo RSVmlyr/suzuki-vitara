@@ -23,7 +23,7 @@ export const SliderImages = () => {
     <Flickity className='sliderImages' options={options}>
       {images.map(image => {
         return (
-          <img src={image} alt="" />
+          <img src={image} alt="" key={image}/>
         )
       })}
     </Flickity>

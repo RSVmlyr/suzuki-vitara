@@ -27,6 +27,9 @@
         @include mq (md) {
           width: 47%;
         }
+        &:last-child {
+          width: 100%;
+        }
       }
     }
   }

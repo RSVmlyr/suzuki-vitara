@@ -16,6 +16,9 @@
     @include maxArea();
     .vote {
       &--left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include mq (md) {
           width: 55%;
         }
@@ -26,7 +29,7 @@
       }
       &--image__file {
         border-radius: .7rem;
-        width: 100%;
+        width: auto;
       }
       &--right {
         @include mq (md) {
@@ -56,6 +59,7 @@
       }
       &--count__name {
         font-size: 2.4rem;
+        text-transform: capitalize;
       }
     }
   }

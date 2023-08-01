@@ -21,7 +21,7 @@ export const AppRouter = () => {
             <Route path='/ranking' element={<Ranking/>}/>
             <Route path='/faqs' element={<Faqs/>}/>
             <Route path='/condiciones' element={<Terms/>} />
-            <Route path='/votar' element={<Vote/>} />
+            <Route path='/votar/:id' element={<Vote/>} />
             <Route path="*" element={<PageNotFound />} />
         </Route>
     </Routes>
