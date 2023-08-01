@@ -326,7 +326,7 @@ const FormInscription = () => {
             required
           />
           <label htmlFor="terms">
-            Confirmo que he leído la política de protección de datos personales, acepto recibir información con fines de seguimiento a mi cotización, autorizo el tratamiento de mis datos personales conforme los siguientes <Link to="/condiciones" target="_blank" rel="noopener noreferrer">términos y condiciones</Link>.
+            Confirmo que he leído la política de protección de datos personales, acepto recibir información con fines de seguimiento a mi participación en la promoción “Estrena Vitara y Emociónate”. Autorizo el tratamiento de mis datos conforme a los siguientes <Link to="/condiciones" target="_blank" rel="noopener noreferrer">términos y condiciones</Link>.
           </label>
         </div>
 
