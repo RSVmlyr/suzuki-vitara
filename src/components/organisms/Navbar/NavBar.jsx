@@ -21,10 +21,10 @@ const linkNavbar = [
   //   name: "GALERÍA",
   //   path: "/galeria",
   // },
-  // {
-  //   name: "RANKING",
-  //   path: "/ranking",
-  // },
+  {
+    name: "RANKING",
+    path: "/ranking",
+  },
   {
     name: "FAQS",
     path: "/faqs",
@@ -38,7 +38,7 @@ const linkNavbar = [
 
 export const NavBar = ({isMobile, setBurguer}) => {
   const scrollWithOffset = () => {
-    console.log(window.scrollTo({top: 0}));
+    window.scrollTo({top: 0});
     setBurguer(true);
   }
   return (
@@ -56,7 +56,7 @@ export const NavBar = ({isMobile, setBurguer}) => {
                 :
                 <AnchorLink text={link.name} 
                   className={({ isActive }) => isActive ? 'active' : 'navbar__menu'}
-                  path={link.path} setBurguer={scrollWithOffset}/> 
+                  path={link.path} scrollWithOffset={scrollWithOffset}/> 
                }
               
             </li>)
