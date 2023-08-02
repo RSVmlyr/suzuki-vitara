@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import getAll from '../service/galeryService';
+import getAllGalery from '../service/galeryService';
 
 
 export const useGalery = () => {
@@ -7,9 +7,9 @@ export const useGalery = () => {
     const [galery, setGalery] = useState([]);
 
     const fetchData = async () => {
-        let data = []
+        let data = [];
         try {
-            data = await getAll();
+            data = await getAllGalery();
         } catch (error) {
             console.error(error);
         }
