@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import getAllRanking from '../service/rankingServer';
+import messageError from '../helpers/messageApiError';
 
 
 export const useGetRanking = () => {
@@ -11,7 +12,7 @@ export const useGetRanking = () => {
         try {
             data = await getAllRanking();
         } catch (error) {
-            console.log(error);
+            messageError()
         }
         setRanking(data);
     }

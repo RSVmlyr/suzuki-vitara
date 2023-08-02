@@ -3,9 +3,9 @@ import rankingPosition from '../../../helpers/rankingPosition';
 
 import './CardRanking.scss';
 
-import photo from '../../../assets/images/bg/position-ranking.jpg';
-import photo1 from '../../../assets/images/bg/position-ranking2.jpg';
-import photo2 from '../../../assets/images/bg/position-ranking3.jpg';
+import photo from '../../../assets/images/icon/goldMedal.png';
+import photo1 from '../../../assets/images/icon/silverMedal.png';
+import photo2 from '../../../assets/images/icon/bronzeMedal.png';
 import firtsStar from '../../../assets/images/icon/Star-1.svg'
 import secondStar from '../../../assets/images/icon/Star-2.svg'
 import thirdStar from '../../../assets/images/icon/Star-3.svg'
