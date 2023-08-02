@@ -1,8 +1,8 @@
 import Swal from 'sweetalert2';
 
-const useSetVote = async (body) => {
+const useSetVote = async (body, name) => {
   try {
-    const response = await fetch('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo', {
+    const response = await fetch('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/submit-webform', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -14,8 +14,8 @@ const useSetVote = async (body) => {
       const data = await response.json();
       Swal.fire({
         icon: 'success',
-        title: 'Tu foto y tu información han pasado a revisión',
-        text: 'Una vez sea aprobado el registro, recibirás una notificación vía correo electrónico y/o mensaje de texto para que compartas la foto con tus amigos y voten por ti.',
+        title: 'Gracias',
+        text: `Tu voto fue registrado exitosamente. Ahora tu amigo ${name} está más cerca de ganar.`,
         confirmButtonColor: '#DF013A',
         confirmButtonText: 'Cerrar',
       })

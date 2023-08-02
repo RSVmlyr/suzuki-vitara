@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import FormVote from '../../components/molecules/ForrmVote/ForrmVote';
 import useGetPhotoInfo from '../../hooks/useGetPhotoInfo';
 import { useParams } from 'react-router-dom';
-import imgVote from '../../assets/images/bg/img-vote.jpeg';
 
 import './Vote.scss';
 

@@ -1,18 +1,32 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React, { useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import useCities from '../../../hooks/useCities';
 import useSetVote from '../../../hooks/useSetVote';
+import { useParams } from 'react-router-dom';
+import useGetPhotoInfo from '../../../hooks/useGetPhotoInfo';
 import Swal from 'sweetalert2';
 
 import './ForrmVote.scss'
 
 const FormVote = () => {
+  const { id } = useParams();
   const cities = useCities();
   const formRef = useRef(null)
   const captcha = useRef(null)
   const [captchaKey, setCaptchaKey] = useState(Date.now());
+
+  const [competitorName, setCompetitorName] = useState('');
+  const { data } = useGetPhotoInfo(
+    `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/photo/${id}`
+  );
+
+  useEffect(() => {
+    if (data && data.competitor_name !== '' && data.competitor_name !== null) {
+      setCompetitorName(data.competitor_name);
+    }
+  }, [data]);
 
   const onChangeCaptcha = () => {
     if (captcha.current.getValue()) {
@@ -45,37 +59,40 @@ const FormVote = () => {
     setEmail(enteredEmail);
   };
 
-  const handleFormSubmit = async (e) => { 
+  const [changeCity, setChangeCity] = useState('');
+  const handleSelectChangeCity = (e) => {
+    const selectedCity = e.target.value;
+    setChangeCity(selectedCity);
+  };
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (captcha.current && captcha.current.getValue()) {
       console.log('El usuario NO es un ROBOT.');
       const bodyForm = {
-        "field_names": e.target.name.value,
-        "field_number_id": e.target.identification.value,
-        "field_cellphone": e.target.phoneNumber.value,
-        "email": e.target.email.value,
-        "field_city": e.target.city.value,
+        "webform_id": "vote",
+        "submission_data" : {
+          "names": e.target.name.value,
+          "number_id": e.target.identification.value,
+          "cellphone": e.target.phoneNumber.value,
+          "mail": e.target.email.value,
+          "city": e.target.city.value,
+          "photo_id": id
+        }
       }
 
       console.log(bodyForm);
 
-      // const response = await useSetForm(bodyForm);
-      // if (response && response.serviceStatus) {
-      //   setName('');
-      //   setIdentification('');
-      //   setPhoneNumber('');
-      //   setEmail('');
-      //   setSelectedValueCity('');
-      //   captcha.current = ''
-      //   response.serviceStatus && formRef.current.reset();
-      // }
-
-      setName('');
-      setIdentification('');
-      setPhoneNumber('');
-      setEmail('');
-      // setSelectedValueCity('');
-      captcha.current = ''
+      const response = await useSetVote(bodyForm, competitorName);
+      if (response && response.serviceStatus) {
+        setName('');
+        setIdentification('');
+        setPhoneNumber('');
+        setEmail('');
+        setChangeCity('');
+        captcha.current = ''
+        response.serviceStatus && formRef.current.reset();
+      }
       setCaptchaKey(Date.now());
     } else {
       Swal.fire({
@@ -170,6 +187,8 @@ const FormVote = () => {
             <select
               id="city"
               name="city"
+              value={changeCity}
+              onChange={handleSelectChangeCity}
               required
             >
             <option value="">Seleccionar</option>
