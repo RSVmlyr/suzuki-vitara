@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import messageError from '../helpers/messageApiError';
 
 const useGetIp = (url) => {
   const [dataIp, setDataIp] = useState(null);
@@ -11,6 +12,7 @@ const useGetIp = (url) => {
         // console.log(dataIp);
       })
       .catch((error) => {
+        messageError()
         console.error("Error obteniendo IP:", error);
       });
   }, [url]);
