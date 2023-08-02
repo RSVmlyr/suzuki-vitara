@@ -248,7 +248,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="city">
-              Ciudad:
+              Ciudad: *
             </label>
             <select
               id="city"

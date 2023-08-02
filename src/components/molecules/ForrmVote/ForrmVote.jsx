@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import React, { useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useNavigate } from 'react-router-dom';
 import useCities from '../../../hooks/useCities';
 import useSetVote from '../../../hooks/useSetVote';
 import { useParams } from 'react-router-dom';
 import useGetPhotoInfo from '../../../hooks/useGetPhotoInfo';
+import useGetIp from '../../../hooks/useGetIp';
 import Swal from 'sweetalert2';
 
 import './ForrmVote.scss'
@@ -16,11 +18,20 @@ const FormVote = () => {
   const formRef = useRef(null)
   const captcha = useRef(null)
   const [captchaKey, setCaptchaKey] = useState(Date.now());
+  const navigate = useNavigate();
 
   const [competitorName, setCompetitorName] = useState('');
   const { data } = useGetPhotoInfo(
     `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/photo/${id}`
   );
+  const { dataIp } = useGetIp (
+    `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/get-ip`
+  );
+
+  let ipNumber
+  if (dataIp) {
+    ipNumber = dataIp.ip
+  }
 
   useEffect(() => {
     if (data && data.competitor_name !== '' && data.competitor_name !== null) {
@@ -93,6 +104,7 @@ const FormVote = () => {
           "cellphone": e.target.phoneNumber.value,
           "mail": e.target.email.value,
           "city": e.target.city.value,
+          "ip_address": ipNumber,
           "photo_id": id
         }
       }
@@ -106,6 +118,7 @@ const FormVote = () => {
         setChangeCity('');
         captcha.current = ''
         response.serviceStatus && formRef.current.reset();
+        navigate('/galeria');
       }
       setCaptchaKey(Date.now());
     } else {
