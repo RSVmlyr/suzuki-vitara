@@ -24,20 +24,20 @@ const FormVote = () => {
   const { data } = useGetPhotoInfo(
     `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/photo/${id}`
   );
+
+  const [ipN, setIpN] = useState('');
   const { dataIp } = useGetIp (
     `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/get-ip`
   );
-
-  let ipNumber
-  if (dataIp) {
-    ipNumber = dataIp.ip
-  }
 
   useEffect(() => {
     if (data && data.competitor_name !== '' && data.competitor_name !== null) {
       setCompetitorName(data.competitor_name);
     }
-  }, [data]);
+    if (dataIp && dataIp.ip) {
+      setIpN(dataIp.ip)
+    }
+  }, [data, dataIp]);
 
   const onChangeCaptcha = () => {
     if (captcha.current.getValue()) {
@@ -104,7 +104,7 @@ const FormVote = () => {
           "cellphone": e.target.phoneNumber.value,
           "mail": e.target.email.value,
           "city": e.target.city.value,
-          "ip_address": ipNumber,
+          "ip_address": ipN,
           "photo_id": id
         }
       }
