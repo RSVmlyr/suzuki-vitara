@@ -1,0 +1,144 @@
+@import '/src/App.scss';
+
+.cardRanking {
+    padding: 2.4rem 0;
+    border-bottom: 1px solid white;
+
+    @include mq (mdx) {
+        width: 33%;
+        max-width: 40rem;
+        border: none;
+    }
+
+    .start {
+        display: none;
+        @include mq (mdx) {
+            display: block;
+            margin: 0;
+            padding: 1.2rem;
+            background-color: white;
+            border-radius: 0.8rem;
+        }
+    }
+
+    &--first {
+        @include mq (mdx) {
+            order: 2;
+        }
+
+        .cardRanking--content {
+            @include mq (mdx) {
+                position: relative;
+                top: -4rem;
+            }
+        }
+
+        .start {
+            background-color: $red;
+        }
+    }
+    &--second {
+        @include mq (mdx) {
+            order: 1;
+        }
+    }
+    &--third {
+        @include mq (mdx) {
+            order: 3;
+        }
+    }
+
+    &--content {
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+
+        @include mq (mdx) {
+            flex-direction: column;
+            background: linear-gradient(180deg, #0047FF 0%, rgba(0, 71, 255, 0.00) 100%);;
+        }
+    }
+
+    &--photo {
+        position: relative;
+        margin: 0;
+        width: 7rem;
+
+        @include mq (mdx) {
+            width: 12rem;
+            height: 13rem;
+            overflow: hidden;
+            border-radius: 0.8rem;
+            top: -8rem;
+        }
+        
+        img {
+            display: block;
+            width: 100%;
+            border-radius: 0.8rem;
+
+            @include mq (mdx) {
+                margin: -16px 0px 0px 0px;
+            }
+
+            &.start {
+                width: 1.2rem;
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                display: block;
+                background-color: transparent;
+
+                @include mq (mdx) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &--position {
+        width: 72%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1.6rem;
+
+        @include mq (mdx) {
+            position: relative;
+            top: -58px;
+            align-items: center;
+            gap: 1.9rem;
+        }
+
+        &__ranking {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            @include mq (mdx) {
+                flex-direction: column;
+                order: 3;
+                gap: 0.8rem;
+            }
+        }
+
+        &__text {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        &__votes {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        &__name {
+            font-size: 2rem;
+            text-align: start;
+            @include mq (mdx) {
+                text-align: center;
+            }
+        }
+    }
+
+}
