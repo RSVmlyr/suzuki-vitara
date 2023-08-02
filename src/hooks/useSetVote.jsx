@@ -22,7 +22,17 @@ const useSetVote = async (body, name) => {
       return { data, serviceStatus: true }
     } else {
       const errorData = await response.json();
-      // console.log(errorData.error);
+      console.log(errorData.error);
+      if(errorData.error == 'You have already submitted the form.') {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Tu voto ya fue registrado',
+          text: '¡Gracias por participar!',
+          confirmButtonColor: '#DF013A',
+          confirmButtonText: 'Cerrar',
+        })
+      }
+
     }
   } catch (error) {
     console.error(error);

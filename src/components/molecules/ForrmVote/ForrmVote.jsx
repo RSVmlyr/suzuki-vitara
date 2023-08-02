@@ -69,6 +69,22 @@ const FormVote = () => {
     e.preventDefault();
     if (captcha.current && captcha.current.getValue()) {
       console.log('El usuario NO es un ROBOT.');
+      if (
+        name.trim() === '' ||
+        identification.trim() === '' ||
+        phoneNumber.trim() === '' ||
+        email.trim() === '' ||
+        changeCity.trim() === ''
+      ) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Campos obligatorios!',
+          text: 'Por favor, completa todos los campos * antes de enviar el formulario.',
+          confirmButtonColor: '#DF013A',
+          confirmButtonText: 'Cerrar',
+        });
+        return;
+      }
       const bodyForm = {
         "webform_id": "vote",
         "submission_data" : {
@@ -80,9 +96,7 @@ const FormVote = () => {
           "photo_id": id
         }
       }
-
       console.log(bodyForm);
-
       const response = await useSetVote(bodyForm, competitorName);
       if (response && response.serviceStatus) {
         setName('');
@@ -112,16 +126,16 @@ const FormVote = () => {
 
           <div className='form--vote__item'>
             <label htmlFor="name">
-              Nombre Completo:
+              Nombre Completo: *
             </label>
             <input
               type="text"
               id="name"
               name="name"
               placeholder="Nombre Completo"
-              required
               value={name}
               onChange={handleNameChange}
+              required
               pattern="^[^\d]+$"
               title="El nombre no debe contener números."
             />
@@ -129,16 +143,16 @@ const FormVote = () => {
 
           <div className='form--vote__item'>
             <label htmlFor="identification">
-              Cédula:
+              Cédula: *
             </label>
             <input
               type="text"
               id="identification"
               name="identification"
               placeholder="0000000000"
-              required
               value={identification}
               onChange={handleIdentificationChange}
+              required
               pattern="^\d+$"
               title="Ingresa solo números en la cédula."
             />
@@ -146,17 +160,17 @@ const FormVote = () => {
 
           <div className='form--vote__item'>
             <label htmlFor="phoneNumber">
-              Celular:
+              Celular: *
             </label>
             <input
               type="tel"
               id="phoneNumber"
               name="phoneNumber"
               placeholder='000 000 0000'
-              required
               maxLength={10}
               minLength={10}
               value={phoneNumber}
+              required
               onChange={handlePhoneNumber}
               pattern="[0-9]{10}"
               title="Ingresa solo 10 dígitos en el celular."
@@ -165,15 +179,15 @@ const FormVote = () => {
 
           <div className='form--vote__item'>
             <label htmlFor="email">
-              Correo electrónico:
+              Correo electrónico: *
             </label>
             <input
               type="email"
               id="email"
               name="email"
               placeholder='ejemplo@dominio.com'
-              required
               value={email}
+              required
               onChange={handleEmailChange}
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
               title="Ingresa un correo electrónico válido."
@@ -182,14 +196,14 @@ const FormVote = () => {
 
           <div className='form--vote__item'>
             <label htmlFor="city">
-              Ciudad:
+              Ciudad: *
             </label>
             <select
               id="city"
               name="city"
               value={changeCity}
-              onChange={handleSelectChangeCity}
               required
+              onChange={handleSelectChangeCity}
             >
             <option value="">Seleccionar</option>
             {cities.map((city) => (

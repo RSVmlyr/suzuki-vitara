@@ -94,7 +94,28 @@ const FormInscription = () => {
       let srcUploadImageFile
       if (formInscription) {
         const uploadImageFile = formInscription.querySelector('.upload--image__file')
-        srcUploadImageFile = uploadImageFile.getAttribute('src')
+        srcUploadImageFile = uploadImageFile ? uploadImageFile.getAttribute('src') : false
+      }
+      if (
+        name.trim() === '' ||
+        identification.trim() === '' ||
+        phoneNumber.trim() === '' ||
+        email.trim() === '' ||
+        selectedValueCity.trim() === '' ||
+        formInscription.querySelector('#address').value.trim() === '' ||
+        formInscription.querySelector('#vehiclePlate').value.trim() === '' ||
+        formInscription.querySelector('#codeVin').value.trim() === '' ||
+        selectedDealers.trim() === '' ||
+        formInscription.querySelector('.upload--image__file').getAttribute('src') === null
+      ) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Campos obligatorios!',
+          text: 'Por favor, completa todos los campos * antes de enviar el formulario.',
+          confirmButtonColor: '#DF013A',
+          confirmButtonText: 'Cerrar',
+        });
+        return;
       }
       const bodyForm = {
         "field_names": e.target.name.value,
@@ -135,19 +156,19 @@ const FormInscription = () => {
     }
   };
 
-  const handleKeyPlaca = (event) => {
-    const allowedChars = /^[a-zA-Z0-9\b]+$/;
-    if (!event.key.match(allowedChars)) {
-      event.preventDefault();
-    }
-  };
+  // const handleKeyPlaca = (event) => {
+  //   const allowedChars = /^[a-zA-Z0-9\b]+$/;
+  //   if (!event.key.match(allowedChars)) {
+  //     event.preventDefault();
+  //   }
+  // };
 
-  const handleKeyVin = (event) => {
-    const allowedChars = /^[0-9\b]+$/;
-    if (!event.key.match(allowedChars)) {
-      event.preventDefault();
-    }
-  };
+  // const handleKeyVin = (event) => {
+  //   const allowedChars = /^[0-9\b]+$/;
+  //   if (!event.key.match(allowedChars)) {
+  //     event.preventDefault();
+  //   }
+  // };
 
   return (
     <div className='form--inscription' id="form--inscription__container">
@@ -157,7 +178,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="name">
-              Nombre Completo:
+              Nombre Completo: *
             </label>
             <input
               type="text"
@@ -174,7 +195,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="identification">
-              Cédula:
+              Cédula: *
             </label>
             <input
               type="text"
@@ -191,7 +212,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="phoneNumber">
-              Celular:
+              Celular: *
             </label>
             <input
               type="tel"
@@ -244,7 +265,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="address">
-              Dirección de domicilio:
+              Dirección de domicilio: *
             </label>
             <input
               type="text"
@@ -257,7 +278,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="vehiclePlate">
-              Placa del vehículo:
+              Placa del vehículo: *
             </label>
             <input
               type="text"
@@ -266,7 +287,7 @@ const FormInscription = () => {
               placeholder='ABC123'
               maxLength={6}
               minLength={6}
-              onKeyPress={handleKeyPlaca}
+              // onChange={handleKeyPlaca}
               pattern="^[a-zA-Z]{3}\d{3}$"
               required
             />
@@ -274,7 +295,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="codeVin">
-              Últimos 6 dígitos del VIN del vehículo:
+              Últimos 6 dígitos del VIN del vehículo: *
             </label>
             <input
               type="text"
@@ -283,7 +304,7 @@ const FormInscription = () => {
               placeholder='000000'
               maxLength={6}
               minLength={6}
-              onKeyPress={handleKeyVin}
+              // onChange={handleKeyVin}
               pattern="^[0-9]{6}$"
               required
             />
@@ -291,7 +312,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="dealer">
-              Concesionario donde compró el vehículo:
+              Concesionario donde compró el vehículo: *
             </label>
             <select
               id="dealer"
@@ -311,7 +332,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="placaVehiculo">
-              Subir fotografía:
+              Subir fotografía: *
             </label>
             <UploadImage key={uploadImageKey}/>
           </div>
