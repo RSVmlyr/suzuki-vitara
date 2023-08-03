@@ -5,6 +5,7 @@ import useGetPhotoInfo from '../../hooks/useGetPhotoInfo';
 import { useParams } from 'react-router-dom';
 
 import './Vote.scss';
+import filterName from '../../helpers/clearNameVote';
 
 export const Vote = () => {
   const { id } = useParams();
@@ -55,7 +56,7 @@ export const Vote = () => {
         <div className="vote--right">
           <div className="vote--count">
             <span className="vote--count__number">{likesNumber}</span>
-            <span className="vote--count__name">{competitorName}</span>
+            <span className="vote--count__name">{filterName(competitorName)}</span>
           </div>
           <FormVote />
         </div>
