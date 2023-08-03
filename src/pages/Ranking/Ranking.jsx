@@ -7,10 +7,11 @@ import { TableRanking } from '../../components/organisms/TableRanking/TableRanki
 import rankingPosition from '../../helpers/rankingPosition';
 import { CardRanking } from '../../components/organisms/CardRanking/CardRanking';
 import orderRanking from '../../helpers/orderRanking';
+import { MessageError } from '../../components/molecules/MessageError/MessageError';
 
 export const Ranking = () => {
 
-  const {ranking, setRanking} = useGetRanking();
+  const {ranking, setRanking, error, setError} = useGetRanking();
 
 
   return (
@@ -20,7 +21,12 @@ export const Ranking = () => {
           <h2 >Ranking</h2>
         </div>
         <div className='ranking--container__positions'>
-          <CardRanking data={orderRanking(ranking)}/>
+          {!error &&
+            <CardRanking data={orderRanking(ranking)}
+            />
+            ||  
+            <MessageError redirect={false} />
+          }
         </div>
         
         <div className='ranking--container__board'>

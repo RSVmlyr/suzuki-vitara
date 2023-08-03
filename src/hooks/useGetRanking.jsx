@@ -6,13 +6,15 @@ import messageError from '../helpers/messageApiError';
 export const useGetRanking = () => {
 
     const [ranking, setRanking] = useState([]);
+    const [error, setError] = useState(false);
     
     const fetchRanking = async () => {
         let data = [];
         try {
             data = await getAllRanking();
         } catch (error) {
-            messageError()
+            setError(true)
+            
         }
         setRanking(data);
     }
@@ -22,6 +24,6 @@ export const useGetRanking = () => {
     }, [])
 
     return {
-        ranking, setRanking
+        ranking, setRanking, error, setError
     }
 }
