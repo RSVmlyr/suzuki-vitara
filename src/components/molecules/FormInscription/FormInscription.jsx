@@ -8,8 +8,10 @@ import './FormInscription.scss'
 import useSetForm from '../../../hooks/useSetForm';
 import Swal from 'sweetalert2';
 
+const urlApi = import.meta.env.VITE_BACKEND_API_URL;
+
 const FormInscription = () => {
-  const { data } = useGetDealers('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/list-dealers')
+  const { data } = useGetDealers(`${urlApi}/list-dealers`)
   // const endPointPhoto = 'https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo'
   const [uniqueCities, setUniqueCities] = useState([]);
   const [selectedValueCity, setSelectedValueCity] = useState('');

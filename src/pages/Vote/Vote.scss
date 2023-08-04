@@ -29,7 +29,11 @@
       }
       &--image__file {
         border-radius: .7rem;
-        width: auto;
+        width: 100%;
+        @include mq (md) {
+          width: 100%;
+          object-fit: contain;
+        }
       }
       &--right {
         @include mq (md) {

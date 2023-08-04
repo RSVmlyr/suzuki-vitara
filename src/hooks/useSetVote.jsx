@@ -1,8 +1,9 @@
 import Swal from 'sweetalert2';
+const urlApi = import.meta.env.VITE_BACKEND_API_URL;
 
 const useSetVote = async (body, name) => {
   try {
-    const response = await fetch('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/submit-webform', {
+    const response = await fetch(`${urlApi}/submit-webform`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -26,8 +27,8 @@ const useSetVote = async (body, name) => {
       if(errorData.error == 'You have already submitted the form.') {
         Swal.fire({
           icon: 'warning',
-          title: 'Tu voto ya fue registrado',
-          text: '¡Gracias por participar!',
+          title: 'No se ha creado tu voto porque ya has participado en el proceso',
+          text: '¡Solo puedes participar una vez!',
           confirmButtonColor: '#DF013A',
           confirmButtonText: 'Cerrar',
         })

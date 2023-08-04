@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import getAllGalery from '../service/galeryService';
 import messageError from '../helpers/messageApiError';
+import { set } from 'react-hook-form';
 
 
 
 export const useGalery = () => {
 
     const [galery, setGalery] = useState([]);
+    const [error, setError] = useState(false);
 
     const fetchData = async () => {
 
@@ -15,7 +17,7 @@ export const useGalery = () => {
         try {
             data = await getAllGalery();
         } catch (error) {
-            messageError() 
+            setError(true);
         }
         return setGalery(data);
     }
@@ -26,6 +28,6 @@ export const useGalery = () => {
 
 
   return {
-    galery, setGalery
+    galery, setGalery, error, setError
   }
 }
