@@ -8,19 +8,20 @@ import { MessageError } from '../../components/molecules/MessageError/MessageErr
 export const Galery = () => {
 
   const {galery, setGalery, error, setError} = useGalery();
-
   return (
     <main>
       <div className='gallery'>
         <div className='gallery--container'>
           <h1 className='title'>Galeria</h1>
           <div className='gallery--list'>
-            { !error &&
-              galery.map(photo => {
-                return <CardGallery data={photo} key={photo.id}/>
-              })
-              || <MessageError redirect={false} />
-            }
+            { error && galery.length == 0 && 
+                (<MessageError redirect={false} />)  
+              }
+
+            { !error && galery.length > 0 &&
+            galery.map(photo => {
+              return <CardGallery data={photo} key={photo.id}/>
+            })}
           </div>
         </div>
       </div>

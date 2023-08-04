@@ -11,6 +11,8 @@ import useGetIp from '../../../hooks/useGetIp';
 import Swal from 'sweetalert2';
 
 import './ForrmVote.scss'
+import { MessageError } from '../MessageError/MessageError';
+const urlApi = import.meta.env.VITE_BACKEND_API_URL;
 
 const FormVote = () => {
   const { id } = useParams();
@@ -22,12 +24,11 @@ const FormVote = () => {
 
   const [competitorName, setCompetitorName] = useState('');
   const { data } = useGetPhotoInfo(
-    `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/photo/${id}`
+    `${urlApi}/photo/${id}`
   );
-
   const [ipN, setIpN] = useState('');
-  const { dataIp } = useGetIp (
-    `https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/get-ip`
+  const { dataIp, error } = useGetIp (
+    `${urlApi}/get-ip`
   );
 
   useEffect(() => {
@@ -136,7 +137,7 @@ const FormVote = () => {
       <form ref={formRef} id='form--vote' className='form--vote' onSubmit={handleFormSubmit}>
         <h2 className='title'>Ingresa la siguiente información para que tu voto sea válido.</h2>
         <div className='form--vote__elements'>
-
+          {error && <MessageError />}
           <div className='form--vote__item'>
             <label htmlFor="name">
               Nombre Completo: *

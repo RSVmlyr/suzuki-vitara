@@ -13,7 +13,6 @@ export const Ranking = () => {
 
   const {ranking, setRanking, error, setError} = useGetRanking();
 
-
   return (
     <div className='ranking'>
       <div className='ranking--container'>
@@ -21,12 +20,8 @@ export const Ranking = () => {
           <h2 >Ranking</h2>
         </div>
         <div className='ranking--container__positions'>
-          {!error &&
-            <CardRanking data={orderRanking(ranking)}
-            />
-            ||  
-            <MessageError redirect={false} />
-          }
+          {!error && ranking.length > 0 && (<CardRanking data={orderRanking(ranking)}/>)}
+          { error && ranking.length == 0 && <MessageError />}
         </div>
         
         <div className='ranking--container__board'>

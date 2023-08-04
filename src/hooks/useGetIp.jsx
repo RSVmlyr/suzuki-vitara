@@ -3,21 +3,25 @@ import messageError from '../helpers/messageApiError';
 
 const useGetIp = (url) => {
   const [dataIp, setDataIp] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((dataIp) => {
         setDataIp(dataIp);
-        // console.log(dataIp);
+        if(dataIp == null) {
+          setError(true);
+        }
       })
       .catch((error) => {
-        messageError()
+        setError(true);
+        // messageError()
         console.error("Error obteniendo IP:", error);
       });
   }, [url]);
 
-  return { dataIp };
+  return { dataIp, error, setError };
 };
 
 export default useGetIp;

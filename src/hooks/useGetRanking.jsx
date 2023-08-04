@@ -14,7 +14,6 @@ export const useGetRanking = () => {
             data = await getAllRanking();
         } catch (error) {
             setError(true)
-            
         }
         setRanking(data);
     }

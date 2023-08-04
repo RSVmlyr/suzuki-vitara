@@ -6,10 +6,9 @@ let title = 'El participante no existe'
 let text = 'El participante no existe o no esta participando'
 const filterName = (fullname) => {
     let result = '';
-    if(fullname === undefined) {
-        messageError(title, text)
-        return
-    }
+    // if(fullname === undefined) {
+    //     return
+    // }
     result = fullname.split(' ')[0];
     return result;
 }
