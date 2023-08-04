@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import messageError from '../helpers/messageApiError';
+
 
 const useGetDealers = (url) => {
   const [data, setData] = useState(null);
@@ -11,6 +13,7 @@ const useGetDealers = (url) => {
         // console.log(data);
       })
       .catch((error) => {
+        messageError()
         console.error("Error fetching dealers:", error);
       });
   }, [url]);
