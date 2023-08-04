@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import imgTest from '../../../assets/images/bg/gallery--test.jpeg'
+import filterName from "../../../helpers/clearNameVote";
 
-const apiLink = 'https://dev-suzuki-vitara.pantheonsite.io/'
+const urlApi = import.meta.env.VITE_BACKEND_RESOURCE_URL;
+
 
 const CardGallery = ({data}) => {
 
@@ -21,7 +23,7 @@ const CardGallery = ({data}) => {
             className=""
             src=
             // {imgTest}
-            {apiLink + data.photo_url}
+            {urlApi + data.photo_url}
             loading="lazy"
             alt="Suzuki Vitara"
             title="Suzuki Vitara"
@@ -33,7 +35,7 @@ const CardGallery = ({data}) => {
         </div>
       </div>
       <div className="card--gallery__bottom">
-        <span className="image--autor">{data.competitor_name}</span>
+        <span className="image--autor">{filterName(data.competitor_name)}</span>
       </div>
     </div>
   );

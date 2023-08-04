@@ -4,21 +4,26 @@ import messageError from '../helpers/messageApiError';
 
 const useGetPhotoInfo = (url) => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        // console.log(data);
+        
+        if(data && data.error) {
+          setError(true);
+        }
       })
       .catch((error) => {
-        messageError()
-        console.error("Error fetching dealers:", error);
+        setError(true);
+        // messageError()
+        // console.error("Error fetching dealers:", error);
       });
   }, [url]);
 
-  return { data };
+  return { data, error, setError };
 };
 
 export default useGetPhotoInfo;

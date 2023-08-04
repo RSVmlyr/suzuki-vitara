@@ -1,8 +1,9 @@
 import Swal from 'sweetalert2';
+const urlApi = import.meta.env.VITE_BACKEND_API_URL;
 
 const useSetForm = async (body) => {
   try {
-    const response = await fetch('https://dev-suzuki-vitara.pantheonsite.io/api/prizescooter/register-photo', {
+    const response = await fetch(`${urlApi}/register-photo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
