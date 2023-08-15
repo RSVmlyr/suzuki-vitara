@@ -3,6 +3,9 @@
 .cardRanking {
     padding: 2.4rem 0;
     border-bottom: 1px solid white;
+    &:nth-child(3) {
+        border-bottom: none;
+    }
 
     @include mq (mdx) {
         width: 33%;

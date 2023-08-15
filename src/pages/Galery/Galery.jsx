@@ -12,7 +12,7 @@ export const Galery = () => {
     <main>
       <div className='gallery'>
         <div className='gallery--container'>
-          <h1 className='title'>Galeria</h1>
+          <h1 className='title'>Galería</h1>
           <div className='gallery--list'>
             { error && galery.length == 0 && 
                 (<MessageError redirect={false} />)  

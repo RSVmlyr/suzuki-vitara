@@ -52,7 +52,7 @@ const imagePosition = (i) => {
     return result;
 }
 
-const imageStar = (i) => {
+const imageStart = (i) => {
     let result = '';
     if(i === 0){
         result = firtsStar;
@@ -87,7 +87,7 @@ export const CardRanking = ({data}) => {
                             
                             <h3 className='cardRanking--position__name'>{datum.competitor_id}</h3>
                             <figure className='start'>
-                                <img src={imageStar(i)} alt="first start" />
+                                <img src={imageStart(i)} alt="first start" />
                             </figure>
                         </div>
                     </div>

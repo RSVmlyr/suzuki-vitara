@@ -1,9 +1,12 @@
 @import '/src/App.scss';
 
 .board {
-    width: 70%;
-    margin: 0 auto;
+    width: 100%;
     color: $white;
+    @include mq (mdx) {
+        width: 70%;
+        margin: 0 auto;
+    }
 
     &--head {
         display: none;
@@ -31,7 +34,6 @@
                     }
                 }
             }
-            
         }
     }
 
@@ -40,12 +42,16 @@
         &__row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             padding: 2.4rem 0;
             border-bottom: 1px solid white;
             row-gap: 0.8rem;
             font-size: 1.2rem;
             line-height: 1.2;
+            @include mq (mdx) {
+                flex-wrap: nowrap;
+            }
             th {
                 @include mq (mdx) {
                     width: 33%;
@@ -81,6 +87,17 @@
             }
         }
         
+        &__image {
+            order: 4;
+            @include mq (mdx) {
+                display: block;
+                order: 3;
+                text-align: start;
+            }
+            img {
+                width: 100px;
+            }
+        }
         &__vote {
             width: 50%;
             order: 2;
