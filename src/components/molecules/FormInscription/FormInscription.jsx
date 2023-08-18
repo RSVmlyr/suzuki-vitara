@@ -303,11 +303,11 @@ const FormInscription = () => {
               type="text"
               id="codeVin"
               name="codeVin"
-              placeholder='000000'
+              placeholder='C00000'
               maxLength={6}
               minLength={6}
               // onChange={handleKeyVin}
-              pattern="^[0-9]{6}$"
+              pattern="^[A-Z][0-9]{5}$"
               required
             />
           </div>

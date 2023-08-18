@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import filterName from '../../../helpers/clearNameVote';
 
 export const TableRanking = ({data}) => {
+
+  const scrollWithOffset = () => {
+    window.scrollTo({top: 0});
+    setBurguer(true);
+  }
   return (
 
     <table className='board'>
@@ -24,8 +29,11 @@ export const TableRanking = ({data}) => {
                     <th className='board--body__position'>#{i + 1}</th>
                     <th className='board--body__name'>{filterName(datum.competitor_id)}</th>
                     <th className='board--body__image'>
-                      <Link className="vote--card" to={`/votar/${datum.entity_id}`}>
-
+                      <Link 
+                        className="vote--card" 
+                        to={`/votar/${datum.entity_id}`}
+                        onClick={scrollWithOffset}
+                      >
                         <img src={datum.name_file} alt={datum.competitor_id + " foto"} />
                       </Link>
                     </th>
