@@ -17,10 +17,10 @@ const linkNavbar = [
     name: "PREMIOS",
     path: "/premios",
   },
-  // {
-  //   name: "GALERÍA",
-  //   path: "/galeria",
-  // },
+  {
+    name: "GALERÍA",
+    path: "/galeria",
+  },
   // {
   //   name: "RANKING",
   //   path: "/ranking",
