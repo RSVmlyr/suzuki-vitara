@@ -183,9 +183,9 @@ const Terms = () => {
               <li>La fotografía debe estar en formato PNG o JPG y no debe pesar más de 2MB.</li>
               </ul>
               <br/><br/>
-              <p><b>Artículo 7.2. Selección de ganadores.</b> Las fotos de los participantes estarán publicadas en la página <Link to="https://www.estrenavitara.com.co" target="_blank" rel="noopener noreferrer">www.estrenavitara.com.co</Link> para que el público en general vote por la foto más creativa. Únicamente serán validos los votos de personas que ingresen en el formulario su nombre completo, cédula, celular, correo electrónico y ciudad y que sean recibidos desde dispositivos con IP en Colombia. Cada persona podrá votar una única vez.
-              <br/>
-              Una vez finalizado el periodo de votación (7 de noviembre de 2023), Derco Colombia S.A.S validará cuáles son los 25 participantes con la mayor cantidad de votos y que cumplen los términos y condiciones de la promoción. Los 15 primeros serán los posibles ganadores principales y los últimos 10 serán los posibles ganadores suplentes.</p>
+              <p><b>Artículo 7.2. Selección de ganadores.</b> Las fotos y el nombre de los participantes estarán publicados en la página <Link to="https://www.estrenavitara.com.co" target="_blank" rel="noopener noreferrer">www.estrenavitara.com.co</Link> para que el público en general vote por la foto más creativa. Únicamente serán validos los votos de personas que ingresen en el formulario su nombre completo, cédula, celular, correo electrónico y ciudad y que sean recibidos desde dispositivos con IP en Colombia. Cada persona podrá votar una única vez.
+              <br/><br/>
+              Una vez finalizado el periodo de votación (7 de noviembre de 2023), Derco Colombia S.A.S validará cuáles son los 25 participantes con la mayor cantidad de votos y que cumplen los términos y condiciones de la promoción. Los 15 primeros serán los posibles ganadores principales y los últimos 10 serán los posibles ganadores suplentes. Si existe empate entre 2 o más participantes, tendrá prelación el participante que primero llego al número de votos con el que se generó el empate.</p>
               <br/>
               <p>Serán entregadas un total de quince (15) Patinetas eléctricas marca Minca - Referencia: Minca Scooter 500W. El premio es personal e intransferible y en ningún caso será canjeable por dinero.</p>
               <br/>
