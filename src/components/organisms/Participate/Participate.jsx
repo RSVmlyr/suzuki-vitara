@@ -8,7 +8,7 @@ const Participate = () => {
   return (
     <div className="participate">
       <div className="participate--top">
-        <h2 className="title">Participa y se uno de los ganadores</h2>
+        <h2 className="title">Participa y sé uno de los ganadores</h2>
         <p className="description">Si deseas ser uno de los ganadores debes seguir los siguientes pasos</p>
       </div>
       <div className="participate--bottom">
@@ -50,7 +50,7 @@ const Participate = () => {
             </div>
           </div>
           <div className='card--number__info'>
-            <span className='description'>Si tu foto es una de las 15 más votadas y cumples los términos y condiciones de la promoción, serás uno de los ganadores</span>
+            <span className='description'>Si tu foto es una de las 15 más votadas y cumples los términos y condiciones de la promoción, serás uno de los ganadores.</span>
           </div>
         </div>
         <div className="participate--bottom__right">

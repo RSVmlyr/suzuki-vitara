@@ -180,7 +180,7 @@ const FormInscription = () => {
 
           <div className='form--inscription__item'>
             <label htmlFor="name">
-              Nombre Completo: *
+              Nombre completo: *
             </label>
             <input
               type="text"

@@ -40,8 +40,8 @@ const contentFooter = [
         url: 'mailto:Servicioalcliente@derco.com.co'
       },
       {
-        name:'Teléfono: (1) 676 39 02',
-        url: 'tel:(1) 676 39 02'
+        name:'Teléfono: (601) 676 39 02',
+        url: 'tel:(601) 676 39 02'
       }
     ]
   },
@@ -49,25 +49,25 @@ const contentFooter = [
     'title': 'Líneas de Atención al Cliente',
     'links': [
       {
-        name: 'Línea Fija: 60 1 3715326',
-        url: 'tel:6013715326',
+        name: 'Línea Fija: (601) 371 53 26',
+        url: 'tel:(601) 3715326',
       },
       {
-        name: 'Línea Celular: 3503189888',
-        url: 'tel:573503189888',
+        name: 'Línea Celular: (+57) 350 318 9888',
+        url: 'tel:(+57) 3503189888',
       },
       {
-        name: 'Línea gratuita Nacional: 018000112898',
+        name: 'Línea gratuita Nacional: 01 8000-112898',
         url: 'tel:018000112898',
       },
       {
-        name: 'WhatsApp Derco: 3102137176',
-        url: 'tel:573102137176',
+        name: 'WhatsApp Derco: (+57) 3102137176',
+        url: 'tel:(+57) 3102137176',
       }
     ]
   },
   {
-    'title': 'Enlaces de Intéres',
+    'title': 'Enlaces de interés',
     'links': [
       {
         name: 'Términos y Condiciones',
